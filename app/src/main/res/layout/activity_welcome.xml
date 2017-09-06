@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="xiangyao.yizhilu.com.studyjourny.WelcomeActivity">
+    android:gravity="center"
+    android:background="@android:color/holo_blue_bright"
+    android:layout_height="match_parent">
 
+    <com.xiangyao.study.PathView
+        android:id="@+id/pathView"
+        android:layout_width="350dp"
+        android:layout_height="350dp"
+        app:svg="@raw/ironman_white"
+        app:pathColor="@android:color/white"
+        app:pathWidth="2dp"/>
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>
