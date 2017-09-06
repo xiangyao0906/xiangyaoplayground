@@ -7,9 +7,4 @@
     tools:context="xiangyao.yizhilu.com.studyjourny.WelcomeActivity">
 
 
-    <ImageView
-        android:id="@+id/guideImage"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/ic_launcher_background" />
 </android.support.constraint.ConstraintLayout>
