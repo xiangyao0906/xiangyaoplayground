@@ -598,13 +598,13 @@ public class PathView extends View implements SvgUtils.AnimationStepListener {
 
             @Override
             public void onAnimationStart(Animator animation) {
-                if (listenerStart != null) 
+                if (listenerStart != null)
                     listenerStart.onAnimationStart();
             }
 
             @Override
             public void onAnimationEnd(Animator animation) {
-                if (animationEnd != null) 
+                if (animationEnd != null)
                     animationEnd.onAnimationEnd();
             }
 
@@ -793,13 +793,13 @@ public class PathView extends View implements SvgUtils.AnimationStepListener {
 
             @Override
             public void onAnimationStart(Animator animation) {
-                if (listenerStart != null) 
+                if (listenerStart != null)
                     listenerStart.onAnimationStart();
             }
 
             @Override
             public void onAnimationEnd(Animator animation) {
-                if (animationEnd != null) 
+                if (animationEnd != null)
                     animationEnd.onAnimationEnd();
             }
 

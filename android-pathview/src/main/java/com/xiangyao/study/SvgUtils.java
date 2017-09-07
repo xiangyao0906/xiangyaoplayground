@@ -55,7 +55,7 @@ public class SvgUtils {
      * @param svgResource int resource id of the svg.
      */
     public void load(Context context, int svgResource) {
-        if (mSvg != null) 
+        if (mSvg != null)
             return;
         try {
             mSvg = SVG.getFromResource(context, svgResource);
@@ -127,7 +127,7 @@ public class SvgUtils {
      * @param canvas      The canvas to be drawn.
      */
     private void rescaleCanvas(int width, int height, float strokeWidth, Canvas canvas) {
-        if (mSvg == null) 
+        if (mSvg == null)
             return;
         final RectF viewBox = mSvg.getDocumentViewBox();
 

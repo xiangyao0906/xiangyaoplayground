@@ -1,1 +1,1 @@
-include ':app', ':android-pathview'
+include ':app', ':android-pathview', ':router'

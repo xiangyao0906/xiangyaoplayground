@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">StudyJourny</string>
+    <string name="tips">
+            <p>
+              选择<b>"快捷注册"</b>
+            </p>
+            <p>
+              选择<b>"普通注册"</b>
+            </p>
+    </string>
 </resources>
