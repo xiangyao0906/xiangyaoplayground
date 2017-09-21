@@ -1,10 +1,11 @@
-package xiangyao.yizhilu.com.studyjourny
+package xiangyao.yizhilu.com.studyjourny.ui
 
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.animation.AccelerateDecelerateInterpolator
 import kotlinx.android.synthetic.main.activity_welcome.*
+import xiangyao.yizhilu.com.studyjourny.R
 
 class WelcomeActivity : AppCompatActivity() {
 
@@ -15,11 +16,6 @@ class WelcomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_welcome)
-
-//        guideImage!!.setOnClickListener { startActivity(Intent(this,MainActivity::class.java)) }
-
-//        val pathView = findViewById<PathView>(R.id.pathView)
-
     }
 
     override fun onResume() {
@@ -30,7 +26,7 @@ class WelcomeActivity : AppCompatActivity() {
                 .duration(1500)
                 .interpolator(AccelerateDecelerateInterpolator())
                 .listenerEnd {
-                    startActivity(Intent(this,MainActivity::class.java))
+                    startActivity(Intent(this, MainActivity::class.java))
                     finish()
                 }
                 .start()

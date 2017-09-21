@@ -1,4 +1,4 @@
-package xiangyao.yizhilu.com.studyjourny.utils;
+package com.xiangyao.train.utils;
 
 /**
  * Created by Administrator on 2017/09/07.
@@ -44,6 +44,16 @@ public class TraceAspect {
     @Pointcut("execution(* *..Activity+.*(..))")
     public void methodLogger() {}
 
+//    @Before("methodLogger()")
+//    public void onMethodBefore(JoinPoint joinPoint) {
+//        //在调用切入点方法之前可以做一些操作，就在这儿做
+//        //比如获取这个方法的类名或者调用方法前弹个提示信息，修改一些数据等等
+//        //我这儿就只输出一下方法的类名
+//        Log.e(TAG, "onMethodBefore: 类名："+joinPoint.toString());
+//        //获取方法的类的对象，对其进行操作
+//        Log.e(TAG, "onMethodBefore: 是否是Activity？ "+(joinPoint.getTarget() instanceof Activity));
+//        //还可以操作更多，自己慢慢探索
+//    }
 
     @After("methodLogger()")
     public void onMethodAfter(JoinPoint joinPoint) {

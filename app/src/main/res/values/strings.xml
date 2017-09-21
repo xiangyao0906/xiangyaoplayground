@@ -8,4 +8,5 @@
               选择<b>"普通注册"</b>
             </p>
     </string>
+    <string name="title_activity_base">BaseActivity</string>
 </resources>
