@@ -7,11 +7,16 @@ import xiangyao.yizhilu.com.studyjourny.R
 import xiangyao.yizhilu.com.studyjourny.base.BaseActivity
 
 class MainActivity : BaseActivity(), MainActivityContract.View {
-    override fun addOlicListener() {
-        haha()
+
+    var mainPresnter: MainActivityContract.Presenter? = null
+
+    override fun addOnClicListener() {
     }
 
     override fun iniData() {
+
+
+
     }
 
     override fun getContenView(): Int {

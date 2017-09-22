@@ -15,6 +15,6 @@ abstract class BaseActivity : Activity() {
 
     abstract fun  iniData()
 
-    abstract fun addOlicListener()
+    abstract fun addOnClicListener()
 
 }
