@@ -9,6 +9,8 @@
         android:name="design_height"
         android:value="1280"></meta-data>
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"

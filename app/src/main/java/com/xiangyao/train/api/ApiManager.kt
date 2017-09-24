@@ -62,6 +62,8 @@ object ApiManager {
                                 }
 
                                 //从request中获取原有的HttpUrl实例oldHttpUrl
+
+
                                 val oldHttpUrl = request.url()
                                 //重建新的HttpUrl，修改需要修改的url部分
                                 val newFullUrl = oldHttpUrl

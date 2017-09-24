@@ -7,9 +7,23 @@
     android:orientation="vertical"
     tools:context="xiangyao.yizhilu.com.studyjourny.ui.MainActivity">
 
-    <android.support.v7.widget.RecyclerView
-    android:id="@+id/movielist"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/movie_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?colorPrimary"
+        app:navigationIcon="@mipmap/ic_action_back"
+        app:title="movie"
+        app:titleTextColor="@color/white" />
 
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/movie_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/movie_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </android.support.v4.widget.SwipeRefreshLayout>
 </LinearLayout>

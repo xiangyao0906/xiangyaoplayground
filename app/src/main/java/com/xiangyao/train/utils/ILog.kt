@@ -2,16 +2,17 @@ package com.xiangyao.train.utils
 
 
 import android.util.Log
+import com.orhanobut.logger.Logger
 
 
- object ILog {
+object ILog {
 
-    private val TAG = "log268"
+    private val TAG = "xiangyao"
     private val isOn = true
 
-     fun i(massage: String) {
+    fun i(massage: String) {
         if (isOn) {
-            Log.i(TAG, massage)
+            Logger.i(massage)
         }
     }
 

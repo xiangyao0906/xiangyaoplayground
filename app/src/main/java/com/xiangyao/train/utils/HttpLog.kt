@@ -2,6 +2,7 @@ package com.xiangyao.train.utils
 
 
 import android.util.Log
+import com.orhanobut.logger.Logger
 
 import okhttp3.logging.HttpLoggingInterceptor
 
@@ -11,7 +12,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 
 class HttpLog : HttpLoggingInterceptor.Logger {
     override fun log(message: String) {
-        Log.i("xiangyao", message)
+        Logger.i( message)
     }
 }
 

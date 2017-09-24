@@ -1,14 +1,24 @@
 package com.xiangyao.train.contract
 
+import com.xiangyao.train.base.BaseView
+import com.xiangyao.train.bean.Movie
+
 /**
- * Created by Administrator on 2017/09/21.
+ * Created by xiangyao on 2017/9/23.
  */
 
 interface MainActivityContract {
 
-    interface Model
 
-    interface View
 
-    interface Presenter
+    interface View :BaseView<Movie>{
+
+
+
+        fun closeProgress()
+    }
+
+    interface Presenter  {
+        fun getData(start: String, count: String)
+    }
 }
