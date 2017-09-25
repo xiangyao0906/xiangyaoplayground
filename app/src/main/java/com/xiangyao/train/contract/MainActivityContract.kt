@@ -1,6 +1,6 @@
 package com.xiangyao.train.contract
 
-import com.xiangyao.train.base.BaseView
+import com.xiangyao.train.base.BaseViewI
 import com.xiangyao.train.bean.Movie
 
 /**
@@ -11,14 +11,9 @@ interface MainActivityContract {
 
 
 
-    interface View :BaseView<Movie>{
+    interface View :BaseViewI<Movie>
 
-
-
-        fun closeProgress()
-    }
-
-    interface Presenter  {
+    interface Presenter {
         fun getData(start: String, count: String)
     }
 }

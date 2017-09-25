@@ -1,14 +1,7 @@
 package com.xiangyao.train.base
 
-import android.view.View
 
-/**
- * Created by ming on 2017/9/14.
- */
-
-interface BaseView<V> {
-
-
+interface BaseViewI<V> {
     /**
      * 数据加载失败
      * tag==1,正常错误，可以只显示toast

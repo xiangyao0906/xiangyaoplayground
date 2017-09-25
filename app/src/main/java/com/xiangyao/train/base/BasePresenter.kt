@@ -1,9 +1,6 @@
 package com.xiangyao.train.base
 
 import android.content.Context
-import android.support.design.widget.Snackbar
-
-import com.xiangyao.train.contract.MainActivityContract
 import com.xiangyao.train.utils.IToast
 import com.xiangyao.train.utils.NetWorkUtils
 
@@ -14,17 +11,17 @@ import rx.subscriptions.CompositeSubscription
  * Created by ming on 2017/9/14.
  */
 
-open class BasePresenter<V : MainActivityContract.View> : BasePresnterIm {
+abstract class BasePresenter<V : BaseViewI<*>> : BasePresnterIm {
 
     var mView: V? = null
-     var  context: Context? = null
+    var context: Context? = null
     private var mCompositeSubscription: CompositeSubscription? = null
 
     override fun checkNetWork(context: Context): Boolean {
         if (!NetWorkUtils.isNetWorkAvailable(context)) {
 
 
-           IToast.show(context,"没有网络了")
+            IToast.show(context, "没有网络了")
         }
         return NetWorkUtils.isNetWorkAvailable(context)
     }

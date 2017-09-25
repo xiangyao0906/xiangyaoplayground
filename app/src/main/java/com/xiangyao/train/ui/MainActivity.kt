@@ -13,11 +13,8 @@ import kotlinx.android.synthetic.main.activity_main.*
 import xiangyao.yizhilu.com.studyjourny.R
 
 class MainActivity : BaseActivity<MainActivityPresenter, Movie>(), MainActivityContract.View {
-    /*
-    * 以后再优化吧，网络逻辑还是有问题
-    *
-    * **/
-    var datas: Movie? = null
+
+    private var datas: Movie? = null
 
     override fun setAdapter() {
 
@@ -25,7 +22,6 @@ class MainActivity : BaseActivity<MainActivityPresenter, Movie>(), MainActivityC
         movie_list.adapter = MovieAdapter(datas, this)
         ILog.i("集合的大小" + datas?.subjects?.size.toString())
     }
-
 
     override fun showDataSuccess(datas: Movie) {
         this.datas = datas
@@ -36,9 +32,7 @@ class MainActivity : BaseActivity<MainActivityPresenter, Movie>(), MainActivityC
         showNetErrorView()
     }
 
-    override fun closeProgress() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+
 
     override fun getPresenter(): MainActivityPresenter? {
         return MainActivityPresenter()
@@ -58,6 +52,7 @@ class MainActivity : BaseActivity<MainActivityPresenter, Movie>(), MainActivityC
     override fun initData() {
         mPresenter?.getData("0", "0")
     }
+
 
     private fun haha() {
         var abc: ArrayList<Student> = DateFactory.getInputObject(10)

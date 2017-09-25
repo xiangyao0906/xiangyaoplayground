@@ -14,15 +14,13 @@ import rx.Subscriber
 
 class MainActivityPresenter : BasePresenter<MainActivityContract.View>(), MainActivityContract.Presenter {
 
-
-
     companion object {
-
         var modle: MainActivityModel = MainActivityModel()
     }
 
     override fun getData(start: String, count: String) {
         ILog.i("获取数据")
+
         context?.let { checkNetWork(it) }
         addSubscription(modle.getData(start, count).subscribe(object : Subscriber<Movie>() {
             override fun onCompleted() {
@@ -30,13 +28,13 @@ class MainActivityPresenter : BasePresenter<MainActivityContract.View>(), MainAc
             }
 
             override fun onError(e: Throwable) {
-                Log.i("wulalalal","onError"+e.message)
+                Log.i("wulalalal", "onError" + e.message)
                 mView?.showDataError(e.message!!)
 
             }
 
             override fun onNext(listM_base: Movie) {
-                Log.i("wulalalal","onNext")
+                Log.i("wulalalal", "onNext")
                 /*
                 * 在可以对返回内容做进一步判断
                 *
@@ -47,7 +45,6 @@ class MainActivityPresenter : BasePresenter<MainActivityContract.View>(), MainAc
         }))
 
     }
-
 
 
 }

@@ -10,7 +10,7 @@ import android.view.*
 import android.widget.FrameLayout
 import android.widget.Toast
 import com.xiangyao.train.base.BasePresnterIm
-import com.xiangyao.train.base.BaseView
+import com.xiangyao.train.base.BaseViewI
 import com.xiangyao.train.base.DemoApplication
 import com.xiangyao.train.utils.GeneralUtil
 import com.xiangyao.train.utils.KeyBoardUtils
@@ -19,13 +19,13 @@ import com.xiangyao.train.utils.PageStateManager
 import xiangyao.yizhilu.com.studyjourny.R
 
 
-abstract class BaseActivity<T : BasePresnterIm, V> : Activity(), BaseView<V> {
+abstract class BaseActivity<T : BasePresnterIm, V> : Activity(), BaseViewI<V> {
 
     private var TAG: String? = null
 
     var mPresenter: T? = null
 
-    var context: Context ?= null
+    var context: Context? = null
 
     private var pageStateManager: PageStateManager? = null
 
@@ -95,7 +95,7 @@ abstract class BaseActivity<T : BasePresnterIm, V> : Activity(), BaseView<V> {
     /**
      * 获取Presenter
      */
-    abstract  fun getPresenter(): T?
+    abstract fun getPresenter(): T?
 
 
     /**
@@ -122,7 +122,7 @@ abstract class BaseActivity<T : BasePresnterIm, V> : Activity(), BaseView<V> {
     }
 
 
-    override   fun onReload() {
+    override fun onReload() {
 
     }
 
@@ -149,7 +149,7 @@ abstract class BaseActivity<T : BasePresnterIm, V> : Activity(), BaseView<V> {
     /**
      * 加载失败的View
      */
-    override  fun showNetErrorView() {
+    override fun showNetErrorView() {
 
         if (pageStateManager != null && !isContentAlready) {
             pageStateManager!!.showError()
@@ -168,15 +168,15 @@ abstract class BaseActivity<T : BasePresnterIm, V> : Activity(), BaseView<V> {
     /**
      * 加载不到数据的View
      */
-    override  fun showEmptyView(msg: String) {
+    override fun showEmptyView(msg: String) {
         if (pageStateManager != null) {
             pageStateManager!!.showEmpty()
         }
     }
 
-    private var  isContentAlready: Boolean = false
+    private var isContentAlready: Boolean = false
 
-    override  fun showContent() {
+    override fun showContent() {
         if (pageStateManager != null) {
             pageStateManager!!.showContent()
             isContentAlready = true
@@ -258,6 +258,7 @@ abstract class BaseActivity<T : BasePresnterIm, V> : Activity(), BaseView<V> {
             return result
         }
     }
+
     fun openActivity(targetActivityClass: Class<*>) {
         val intent = Intent(this, targetActivityClass)
         startActivity(intent)
@@ -282,7 +283,6 @@ abstract class BaseActivity<T : BasePresnterIm, V> : Activity(), BaseView<V> {
         this.finish()
         //        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
     }
-
 
 
 }
