@@ -16,21 +16,10 @@ interface BaseViewI<V> {
 
     fun setAdapter()
 
-
     /**
      * 显示加载进度
      */
-    fun showProgress()
-
-    /**
-     * 显示加载进度
-     */
-    fun hideProgress()
-
-    /**
-     * 点击重新加载
-     */
-    fun onReload()
+    fun showLoadingView()
 
     /**
      * 显示无网络视图
@@ -46,5 +35,11 @@ interface BaseViewI<V> {
      * 显示内容View
      */
     fun showContent()
+
+    /**
+     * 显示重试布局
+     */
+     fun showRetryView()
+
 
 }

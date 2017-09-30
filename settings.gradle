@@ -1,1 +1,1 @@
-include ':app', ':android-pathview', ':router', ':lib', ':apt'
+include ':app', ':android-pathview', ':router', ':lib', ':apt', ':statelibrary'

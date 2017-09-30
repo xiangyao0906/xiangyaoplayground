@@ -13,6 +13,7 @@
             <option value="$PROJECT_DIR$/apt" />
             <option value="$PROJECT_DIR$/lib" />
             <option value="$PROJECT_DIR$/router" />
+            <option value="$PROJECT_DIR$/statelibrary" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

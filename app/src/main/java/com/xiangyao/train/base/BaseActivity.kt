@@ -8,14 +8,12 @@ import android.os.Bundle
 import android.support.v4.view.ViewCompat
 import android.view.*
 import android.widget.FrameLayout
-import android.widget.Toast
+import com.github.nukc.stateview.StateView
 import com.xiangyao.train.base.BasePresnterIm
 import com.xiangyao.train.base.BaseViewI
 import com.xiangyao.train.base.DemoApplication
 import com.xiangyao.train.utils.GeneralUtil
 import com.xiangyao.train.utils.KeyBoardUtils
-import com.xiangyao.train.utils.NetWorkUtils
-import com.xiangyao.train.utils.PageStateManager
 import xiangyao.yizhilu.com.studyjourny.R
 
 
@@ -27,7 +25,7 @@ abstract class BaseActivity<T : BasePresnterIm, V> : Activity(), BaseViewI<V> {
 
     var context: Context? = null
 
-    private var pageStateManager: PageStateManager? = null
+    private var mStateView: StateView? = null
 
     private var application: DemoApplication? = null
 
@@ -36,7 +34,7 @@ abstract class BaseActivity<T : BasePresnterIm, V> : Activity(), BaseViewI<V> {
         super.onCreate(savedInstanceState)
         setContentView(getLayoutId())
         context = this
-
+        initStateLayout()
 
         TAG = this.javaClass.simpleName
 
@@ -45,7 +43,7 @@ abstract class BaseActivity<T : BasePresnterIm, V> : Activity(), BaseViewI<V> {
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP)
-            setTranslucentStatus(resources.getColor(R.color.colorPrimaryDark))
+            setTranslucentStatus()
 
 
         initView()
@@ -56,6 +54,23 @@ abstract class BaseActivity<T : BasePresnterIm, V> : Activity(), BaseViewI<V> {
 
     }
 
+    private fun initStateLayout() {
+        mStateView = StateView.inject(injectTarget())
+        mStateView?.setOnRetryClickListener {
+            //点击重试响应事件
+            reloadActivity()
+        }
+    }
+
+    /**
+     * 点击重试要做的操作
+     */
+    protected abstract fun reloadActivity()
+
+    /**
+     * 注入要替换的View
+     */
+    protected abstract fun injectTarget(): View
 
     /**
      * 设置状态栏背景状态
@@ -63,7 +78,7 @@ abstract class BaseActivity<T : BasePresnterIm, V> : Activity(), BaseViewI<V> {
      *
      * 4.4以上，5.0以下
      */
-    fun setTranslucentStatus(color: Int) {
+    private fun setTranslucentStatus() {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             val win = window
@@ -98,14 +113,6 @@ abstract class BaseActivity<T : BasePresnterIm, V> : Activity(), BaseViewI<V> {
     abstract fun getPresenter(): T?
 
 
-    /**
-     * 显示加载弹框
-     */
-
-    override fun showProgress() {
-
-    }
-
     override fun onDestroy() {
         super.onDestroy()
         application = null
@@ -114,79 +121,43 @@ abstract class BaseActivity<T : BasePresnterIm, V> : Activity(), BaseViewI<V> {
         }
     }
 
-
-    /**
-     * 隐藏加载弹框
-     */
-    override fun hideProgress() {
-    }
-
-
-    override fun onReload() {
-
-    }
-
     override fun showDataError(errorMessage: String) {
-        hideProgress()
         showNetErrorView()
     }
 
     override fun showDataSuccess(datas: V) {
         showContent()
-        hideProgress()
     }
 
-    /**
-     * 加载中的的View
-     */
-    fun showLoadingView(container: View?) {
-        if (container != null) {
-            pageStateManager = PageStateManager(container)
-            pageStateManager!!.showLoading()
-        }
+    override fun showRetryView() {
+        mStateView?.showRetry()
     }
+
 
     /**
      * 加载失败的View
      */
     override fun showNetErrorView() {
+        mStateView?.showRetry()
 
-        if (pageStateManager != null && !isContentAlready) {
-            pageStateManager!!.showError()
-            pageStateManager!!.setOnRetryClickListener({
-                if (NetWorkUtils.isNetWorkAvailable(this@BaseActivity)) {
-                    pageStateManager!!.showLoading()
-                    onReload()
-                } else {
-                    Toast.makeText(this@BaseActivity, "网丢啦:-(", Toast.LENGTH_SHORT).show()
-                }
-            })
-        }
+    }
 
+    override fun showLoadingView() {
+        mStateView?.showLoading()
     }
 
     /**
      * 加载不到数据的View
      */
     override fun showEmptyView(msg: String) {
-        if (pageStateManager != null) {
-            pageStateManager!!.showEmpty()
-        }
+        mStateView?.showEmpty()
     }
 
     private var isContentAlready: Boolean = false
 
     override fun showContent() {
-        if (pageStateManager != null) {
-            pageStateManager!!.showContent()
-            isContentAlready = true
-        }
+        mStateView?.showContent()
     }
-
-
-    val loadingTargetView: View?
-        get() = null
-
 
     /**
      * 沉浸式状态栏：着色

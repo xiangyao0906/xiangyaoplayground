@@ -21,7 +21,7 @@ import java.util.Stack
  */
 class DemoApplication : Application() {
     private val mDialog: ProgressDialog? = null
-    var store: Stack<Activity> ?= null
+    var store: Stack<Activity>? = null
 
 
     //分包支持
@@ -37,6 +37,14 @@ class DemoApplication : Application() {
         registerActivityLifecycleCallbacks(SwitchBackgroundCallbacks())
         AutoLayoutConifg.getInstance().useDeviceSize()
         Logger.init("xiangyao")
+        initFresco()
+    }
+
+    /**
+     * 初始化fresco
+     */
+    private fun initFresco() {
+        Fresco.initialize(DemoApplication.appContext)
     }
 
     /**
@@ -50,7 +58,7 @@ class DemoApplication : Application() {
 
     private inner class SwitchBackgroundCallbacks : Application.ActivityLifecycleCallbacks {
 
-        override fun onActivityCreated(activity: Activity, bundle: Bundle) {
+        override fun onActivityCreated(activity: Activity, bundle: Bundle?) {
             store!!.add(activity)
         }
 
@@ -81,6 +89,5 @@ class DemoApplication : Application() {
 
     companion object {
         var appContext: DemoApplication? = null
-        var mContext: Context? = null
     }
 }
