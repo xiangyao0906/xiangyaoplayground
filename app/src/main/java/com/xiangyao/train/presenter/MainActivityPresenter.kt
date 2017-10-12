@@ -7,7 +7,6 @@ import com.xiangyao.train.base.BasePresenter
 import com.xiangyao.train.bean.Movie
 import com.xiangyao.train.contract.MainActivityContract
 import com.xiangyao.train.model.MainActivityModel
-import com.xiangyao.train.utils.ILog
 import rx.Subscriber
 
 /**
@@ -25,7 +24,7 @@ class MainActivityPresenter(bag: BGARefreshLayout, re: RecyclerView) : BasePrese
 
     override fun getData(start: String, count: String) {
         mView?.showLoadingView()
-        context?.let { checkNetWork(it) }
+        mContext?.let { checkNetWork(it) }
         addSubscription(modle.getData(start, count).subscribe(object : Subscriber<Movie>() {
             override fun onCompleted() {
                 mView?.setAdapter()

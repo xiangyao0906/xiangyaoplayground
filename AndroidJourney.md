@@ -87,3 +87,21 @@ P(Presenter)
 >JitPack、jCenter是我们常用的发布Android开源库的网站，发布成功后就可以在Android Studio中通过Gradle方便的引用到项目中了，相比Eclipse时代要方便的多，对于使用者确实简单了，但对于发布者来说可能还略有坎坷，这里记录下发布的过程，以及遇到的坑。
 
 [发布教程](http://www.jianshu.com/p/b7552cf8983b)
+
+
+##双亲委派 及 ClassLoader
+[进击吧巨人](https://juejin.im/entry/59dd75cd51882578d5037626)
+
+
+
+##算法 经典算法
+[五大常用算法之五：分支限界法](http://www.cnblogs.com/steven_oyj/archive/2010/05/22/1741378.html)
+
+[五大常用算法之三：贪心算法](http://www.cnblogs.com/steven_oyj/archive/2010/05/22/1741375.html)
+
+[五大常用算法之四：回溯法](http://www.cnblogs.com/steven_oyj/archive/2010/05/22/1741376.html)
+
+[五大常用算法之二：动态规划算法](http://www.cnblogs.com/steven_oyj/archive/2010/05/22/1741374.html)
+
+[五大常用算法之一：分治算法](http://www.cnblogs.com/steven_oyj/archive/2010/05/22/1741370.html)
+

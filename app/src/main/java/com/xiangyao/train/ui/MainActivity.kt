@@ -57,7 +57,7 @@ class MainActivity : BaseActivity<MainActivityPresenter, Movie>(), MainActivityC
 
 
     override fun getPresenter(): MainActivityPresenter? {
-        return MainActivityPresenter("")
+        return MainActivityPresenter(movie_refresh,movie_list)
     }
 
     override fun getLayoutId(): Int {
@@ -69,6 +69,7 @@ class MainActivity : BaseActivity<MainActivityPresenter, Movie>(), MainActivityC
 
     override fun initView() {
         mPresenter?.attachView(this, this)
+
     }
 
     override fun initData() {

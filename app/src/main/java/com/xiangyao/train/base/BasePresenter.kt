@@ -14,7 +14,7 @@ import rx.subscriptions.CompositeSubscription
 abstract class BasePresenter<V : BaseViewI<*>> : BasePresnterIm {
 
     var mView: V? = null
-    var context: Context? = null
+    var mContext: Context? = null
     private var mCompositeSubscription: CompositeSubscription? = null
 
     override fun checkNetWork(context: Context): Boolean {
@@ -29,7 +29,7 @@ abstract class BasePresenter<V : BaseViewI<*>> : BasePresnterIm {
 
     fun attachView(view: V, context: Context) {
         this.mView = view
-        this.context = context
+        this.mContext = context
     }
 
 
@@ -49,7 +49,7 @@ abstract class BasePresenter<V : BaseViewI<*>> : BasePresnterIm {
             this.mCompositeSubscription!!.unsubscribe()
         }
         mView = null
-        context = null
+        mContext = null
         this.mCompositeSubscription = null
     }
 
