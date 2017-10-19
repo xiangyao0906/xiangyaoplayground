@@ -8,7 +8,7 @@ import rx.Subscription
 import rx.subscriptions.CompositeSubscription
 
 /**
- * Created by ming on 2017/9/14.
+ *2017年9月23日 11:31:40 author by xiangyao
  */
 
 abstract class BasePresenter<V : BaseViewI<*>> : BasePresnterIm {

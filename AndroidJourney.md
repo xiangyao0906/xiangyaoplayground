@@ -50,6 +50,28 @@ kotlin
 
 >俗称"水管" 
 <center><font color=grey>[传送门](http://blog.csdn.net/johnny901114/article/details/51614927)</font></center>
+
+###操作符
+1.Filter(filter(Func1)用来过滤观测序列中我们不想要的值，只返回满足条件的值，我们看下原理图)
+<center>![](http://upload-images.jianshu.io/upload_images/1167421-b065454753c9f0a2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)</center>
+>还是拿前面文章中的小区Community[] communities来举例，假设我需要赛选出所有房源数大于10个的小区，我们可以这样实现：
+<pre>
+<code>
+ Observable.from(communities)
+        .filter(new Func1<Community, Boolean>() {
+            @Override
+            public Boolean call(Community community) {
+                return community.houses.size()>10;
+            }
+        }).subscribe(new Action1<Community>() {
+    @Override
+    public void call(Community community) {
+        System.out.println(community.name);
+    }
+});
+</code></pre>
+
+
 ##RxAndroid
 ##Retrift
 <center><font color=grey>[傳送門](http://www.jianshu.com/p/308f3c54abdd)</font></center>
