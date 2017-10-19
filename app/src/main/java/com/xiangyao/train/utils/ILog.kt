@@ -1,7 +1,6 @@
 package com.xiangyao.train.utils
 
 
-import android.util.Log
 import com.orhanobut.logger.Logger
 
 

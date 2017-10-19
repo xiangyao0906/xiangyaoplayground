@@ -1,7 +1,9 @@
 package xiangyao.yizhilu.com.studyjourny.ui
 
 import android.support.v7.widget.LinearLayoutManager
+import android.util.Log
 import android.view.View
+import bolts.Task.call
 import com.android.mvp.base.BaseActivity
 import com.xiangyao.train.adapter.MovieAdapter
 import com.xiangyao.train.bean.Movie
@@ -12,6 +14,10 @@ import com.xiangyao.train.utils.Constant
 import com.xiangyao.train.utils.DateFactory
 import com.xiangyao.train.utils.ILog
 import kotlinx.android.synthetic.main.activity_main.*
+import rx.Observable
+import rx.Observer
+import rx.functions.Action1
+import rx.functions.Func1
 import xiangyao.yizhilu.com.studyjourny.R
 
 class MainActivity : BaseActivity<MainActivityPresenter, Movie>(), MainActivityContract.View {
@@ -19,7 +25,7 @@ class MainActivity : BaseActivity<MainActivityPresenter, Movie>(), MainActivityC
      * 注入要替换的View
      */
     override fun injectTarget(): View {
-       return findViewById(R.id.movie_refresh)
+        return findViewById(R.id.movie_refresh)
     }
 
     /**
@@ -27,7 +33,6 @@ class MainActivity : BaseActivity<MainActivityPresenter, Movie>(), MainActivityC
      */
     override fun reloadActivity() {
     }
-
 
 
     private var datas: Movie? = null
@@ -57,7 +62,7 @@ class MainActivity : BaseActivity<MainActivityPresenter, Movie>(), MainActivityC
 
 
     override fun getPresenter(): MainActivityPresenter? {
-        return MainActivityPresenter(movie_refresh,movie_list)
+        return MainActivityPresenter(movie_refresh, movie_list)
     }
 
     override fun getLayoutId(): Int {
@@ -69,7 +74,6 @@ class MainActivity : BaseActivity<MainActivityPresenter, Movie>(), MainActivityC
 
     override fun initView() {
         mPresenter?.attachView(this, this)
-
     }
 
     override fun initData() {
@@ -77,10 +81,6 @@ class MainActivity : BaseActivity<MainActivityPresenter, Movie>(), MainActivityC
     }
 
 
-    private fun haha() {
-        var abc: ArrayList<Student> = DateFactory.getInputObject(10)
-        for (student: Student in abc) {
-            ILog.i(student.name!!)
-        }
-    }
+
+
 }
