@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@android:color/white"
+    android:gravity="center"
+    app:theme="@style/Theme.AppCompat.Light">
+
+    <!--在此更改加载失败重试显示的图片-->
+    <ImageView
+        xmlns:fresco="http://schemas.android.com/apk/res-auto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/state_loading_fail"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="36px"
+        android:id="@+id/state_retry" />
+    <!--图片底部提示的文字-->
+
+    <TextView
+        android:id="@+id/state_fail_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/state_retry"
+        android:textSize="16sp"
+        android:textColor="#9daabf"
+        android:layout_marginTop="14px"
+        android:text="数据加载失败"/>
+    <TextView
+        android:layout_marginTop="60px"
+        android:layout_width="110dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="#ffffff"
+        android:textSize="16sp"
+        android:background="@drawable/btn_shape_red"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/state_fail_tv"
+        android:text="@string/text_retry" />
+
+</RelativeLayout>

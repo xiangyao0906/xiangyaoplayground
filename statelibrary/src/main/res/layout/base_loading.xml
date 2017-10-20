@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:background="@android:color/white">
+    <!--如果加载中显示的动图,需要在stateView类中代码设置动图资源并使用SimpleDraweeView-->
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:layout_width="66px"
+        android:layout_height="81px"
+        fresco:actualImageScaleType="focusCrop"
+        android:layout_gravity="center"
+        android:id="@+id/state_loading" />
+
+</FrameLayout>
