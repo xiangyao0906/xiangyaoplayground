@@ -1,23 +1,15 @@
 package xiangyao.yizhilu.com.studyjourny.ui
 
 import android.support.v7.widget.LinearLayoutManager
-import android.util.Log
 import android.view.View
-import bolts.Task.call
 import com.android.mvp.base.BaseActivity
 import com.xiangyao.train.adapter.MovieAdapter
 import com.xiangyao.train.bean.Movie
 import com.xiangyao.train.contract.MainActivityContract
 import com.xiangyao.train.presenter.MainActivityPresenter
-import com.xiangyao.train.ui.Student
 import com.xiangyao.train.utils.Constant
-import com.xiangyao.train.utils.DateFactory
 import com.xiangyao.train.utils.ILog
 import kotlinx.android.synthetic.main.activity_main.*
-import rx.Observable
-import rx.Observer
-import rx.functions.Action1
-import rx.functions.Func1
 import xiangyao.yizhilu.com.studyjourny.R
 
 class MainActivity : BaseActivity<MainActivityPresenter, Movie>(), MainActivityContract.View {
@@ -35,12 +27,12 @@ class MainActivity : BaseActivity<MainActivityPresenter, Movie>(), MainActivityC
     }
 
 
-    private var datas: Movie? = null
+    private lateinit var datas: Movie
 
     override fun setAdapter() {
 
         movie_list.layoutManager = LinearLayoutManager(this)
-        movie_list.adapter = MovieAdapter(R.layout.lisview_item, datas?.subjects)
+        movie_list.adapter = MovieAdapter(R.layout.lisview_item, datas.subjects)
 
         (movie_list.adapter as MovieAdapter).openLoadAnimation(Constant.GLOPBALLANIMA)
         (movie_list.adapter as MovieAdapter).isFirstOnly(false)
@@ -48,7 +40,7 @@ class MainActivity : BaseActivity<MainActivityPresenter, Movie>(), MainActivityC
         (movie_list.adapter as MovieAdapter).setNotDoAnimationCount(3)
 
 
-        ILog.i("集合的大小" + datas?.subjects?.size.toString())
+        ILog.i("集合的大小" + datas.subjects?.size.toString())
     }
 
     override fun showDataSuccess(datas: Movie) {
@@ -61,7 +53,7 @@ class MainActivity : BaseActivity<MainActivityPresenter, Movie>(), MainActivityC
     }
 
 
-    override fun getPresenter(): MainActivityPresenter? {
+    override fun getPresenter(): MainActivityPresenter {
         return MainActivityPresenter(movie_refresh, movie_list)
     }
 
@@ -73,14 +65,12 @@ class MainActivity : BaseActivity<MainActivityPresenter, Movie>(), MainActivityC
     }
 
     override fun initView() {
-        mPresenter?.attachView(this, this)
+        mPresenter.attachView(this, this)
     }
 
     override fun initData() {
-        mPresenter?.getData("0", "0")
+        mPresenter.getData("0", "0")
     }
-
-
 
 
 }

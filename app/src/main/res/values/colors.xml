@@ -4,4 +4,112 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="white">#ffffffff</color>
+    <color name="main_color">#3e83e5</color>
+
+
+    <color name="black">#000000</color>
+    <color name="transparent">#00000000</color>
+    <color name="half_transparent">#8f000000</color>
+
+    <!--分类筛选菜单-->
+    <color name="font_black_0">#212121</color>
+    <color name="font_black_1">#424242</color>
+    <color name="font_black_2">#616161</color>
+    <color name="font_black_3">#757575</color>
+    <color name="font_black_4">#9e9e9e</color>
+    <color name="font_black_5">#bdbdbd</color>
+    <color name="font_black_6">#e0e0e0</color>
+
+    <!--底部导航栏颜色-->
+    <color name="col_3e83e5">#3e83e5</color>
+    <color name="col_c8c8c8">#c8c8c8</color>
+    <!--StudyFragment顶部tab的颜色-->
+    <color name="col_3F83E5">#3F83E5</color>
+    <color name="col_818B9A">#818B9A</color>
+
+    <color name="col_bfd9ff">#bfd9ff</color>
+    <color name="col_e6e6e6">#e6e6e6</color>
+    <color name="col_B5B5B6">#B5B5B6</color>
+    <color name="col_818b9a">#818b9a</color>
+    <color name="col_f3f5f7">#f3f5f7</color>
+    <color name="col_71777d">#71777d</color>
+    <color name="col_0a0a0a">#0a0a0a</color>
+
+    <color name="col_9b9b9b">#9b9b9b</color>
+    <color name="col_7d848e">#7d848e</color>
+    <color name="col_b5b5b5">#b5b5b5</color>
+    <color name="col_2b333b">#2b333b</color>
+    <color name="col_707378">#707378</color>
+    <color name="col_7c8287">#7c8287</color>
+    <color name="col_999999">#999999</color>
+    <color name="col_f40002">#f40002</color>
+    <color name="col_cccccc">#cccccc</color>
+    <color name="col_b2b2b2">#b2b2b2</color>
+    <color name="col_d9dde1">#d9dde1</color>
+    <color name="col_d0d3d9">#d0d3d9</color>
+    <color name="col_9fa5ae">#9fa5ae</color>
+    <color name="col_eeeeee">#EEEEEE</color>
+    <color name="col_3a3a3a">#3a3a3a</color>
+    <color name="col_767676">#767676</color>
+    <color name="col_888888">#888888</color>
+    <color name="col_4a4a4a">#4a4a4a</color>
+    <color name="col_3f83e6">#3f83e6</color>
+    <color name="col_d4d4d4">#d4d4d4</color>
+    <color name="col_fa574a">#fa574a</color>
+
+    <color name="col_f94536">#f94536</color>
+    <color name="col_f7f7f7">#f7f7f7</color>
+    <color name="col_f7f9fc">#f7f9fc</color>
+    <color name="col_3d4b56">#3d4b56</color>
+    <color name="col_9daabf">#9daabf</color>
+    <color name="col_dcdcdc">#dcdcdc</color>
+    <color name="col_f7f7f9">#f7f7f9</color>
+    <color name="col_878c96">#878c96</color>
+    <color name="col_eef1f1">#eef1f1</color>
+    <color name="col_bcbfc3">#bcbfc3</color>
+    <color name="col_80a8e1">#80a8e1</color>
+    <color name="col_333333">#333333</color>
+    <color name="col_121212">#121212</color>
+    <color name="col_a4a4a4">#a4a4a4</color>
+    <color name="col_979797">#979797</color>
+    <color name="col_787878">#787878</color>
+    <color name="col_494949">#494949</color>
+    <color name="col_e0e0e0">#e0e0e0</color>
+    <color name="col_111111">#111111</color>
+    <color name="col_e4e3e7">#e4e3e7</color>
+    <color name="col_cfcfd3">#cfcfd3</color>
+    <color name="col_5a626b">#5a626b</color>
+    <color name="col_797979">#797979</color>
+    <color name="col_666666">#666666</color>
+    <color name="col_3ec89f">#3ec89f</color>
+    <color name="col_bbbbbb">#bbbbbb</color>
+    <color name="col_1a2630">#1a2630</color>
+    <color name="col_b1b1b1">#b1b1b1</color>
+    <color name="color_e5">#e5e5e5</color>
+    <color name="color_999999">#999999</color>
+    <color name="color_9d">#9d9d9d</color>
+    <color name="col_4fc55f">#4fc55f</color>
+    <color name="col_717171">#717171</color>
+    <color name="col_a0a0a0">#a0a0a0</color>
+    <color name="col_989898">#989898</color>
+    <color name="col_434343">#434343</color>
+    <color name="col_ddd3d9">#ddd3d9</color>
+    <color name="gray_color">#4b4b58</color>
+    <color name="col_4e555e">#4e555e</color>
+    <color name="col_ecf4ff">#ecf4ff</color>
+    <color name="col_9ca3ab">#9ca3ab</color>
+    <color name="col_e5e5e5">#e5e5e5</color>
+    <color name="col_e8e8e8">#e8e8e8</color>
+    <color name="col_ef6363">#ef6363</color>
+    <color name="col_ffdbdb">#ffdbdb</color>
+    <color name="col_ff5a5a">#ff5a5a</color>
+    <color name="col_2bc8a0">#2bc8a0</color>
+    <color name="col_f7e3e3">#f7e3e3</color>
+    <color name="col_cfcfcf">#cfcfcf</color>
+    <color name="col_70788c">#70788c</color>
+    <color name="col_fcb13c">#fcb13c</color>
+    <color name="col_525760">#525760</color>
+    <color name="col_f40000">#f40000</color>
+    <color name="col_555555">#555555</color>
+    <color name="col_aaaaaa">#aaaaaa</color>
 </resources>

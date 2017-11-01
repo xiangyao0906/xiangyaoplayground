@@ -21,7 +21,7 @@ abstract class BaseActivity<T : BasePresnterIm, V> : Activity(), BaseViewI<V> {
 
     private var TAG: String? = null
 
-    var mPresenter: T? = null
+    open lateinit var mPresenter: T
 
     var context: Context? = null
 
@@ -110,7 +110,7 @@ abstract class BaseActivity<T : BasePresnterIm, V> : Activity(), BaseViewI<V> {
     /**
      * 获取Presenter
      */
-    abstract fun getPresenter(): T?
+    abstract fun getPresenter(): T
 
 
     override fun onDestroy() {

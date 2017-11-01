@@ -13,7 +13,7 @@ import rx.Subscriber
  * Created by xiangyao on 2017/9/23.
  */
 
-class MainActivityPresenter(bag: BGARefreshLayout, re: RecyclerView) : BasePresenter<MainActivityContract.View>(), MainActivityContract.Presenter {
+ class MainActivityPresenter(bag: BGARefreshLayout, re: RecyclerView) : BasePresenter<MainActivityContract.View>(), MainActivityContract.Presenter {
     var a: BGARefreshLayout = bag
     var b: RecyclerView = re
 

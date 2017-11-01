@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--分割图属性-->
+    <declare-styleable name="SplitView">
+        <attr name="splitRatio" format="float" />
+        <attr name="minSplitTop" format="dimension" />
+        <attr name="minSplitBottom" format="dimension" />
+    </declare-styleable>
+    <!--圆弧进度条-->
+    <declare-styleable name="TasksCompletedView">
+        <attr name="radius" format="dimension" />
+        <attr name="strokeWidth" format="dimension" />
+        <attr name="circleColor" format="color" />
+        <attr name="ringColor" format="color" />
+        <attr name="ringBgColor" format="color" />
+    </declare-styleable>
+
+
+    <!--NightGridLayout-->
+
+    <declare-styleable name="GoogleCircleProgressView">
+        <attr name="gcp_inner_radius" format="dimension" />
+        <attr name="gcp_background_color" format="color" />
+        <attr name="gcp_progress_color" format="color" />
+        <attr name="gcp_progress_stoke_width" format="dimension" />
+        <attr name="gcp_show_arrow" format="boolean" />
+        <attr name="gcp_enable_circle_background" format="boolean" />
+        <attr name="gcp_arrow_width" format="dimension" />
+        <attr name="gcp_arrow_height" format="dimension" />
+
+        <attr name="gcp_progress" format="integer" />
+        <attr name="gcp_max" format="integer" />
+
+
+        <attr name="gcp_progress_text_size" format="dimension" />
+        <attr name="gcp_progress_text_color" format="color" />
+
+        <attr name="gcp_progress_text_visibility" format="enum">
+            <enum name="visible" value="0" />
+            <enum name="invisible" value="1" />
+        </attr>
+    </declare-styleable>
+
+
+    <declare-styleable name="RatioImageView">
+        <attr name="ratio" format="float" />
+    </declare-styleable>
+
+    <declare-styleable name="NineGridLayout">
+        <attr name="sapcing" format="dimension" />
+    </declare-styleable>
+
+</resources>

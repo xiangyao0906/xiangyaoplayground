@@ -6,6 +6,7 @@ import com.orhanobut.logger.Logger
 import com.xiangyao.train.utils.DateFactory
 import com.xiangyao.train.utils.ILog
 import rx.Observable
+import rx.functions.Action1
 import xiangyao.yizhilu.com.studyjourny.R
 
 class RxJavaTestActivity : Activity() {
@@ -19,6 +20,8 @@ class RxJavaTestActivity : Activity() {
         rxfilter()
 
         rxmap()
+
+        ListTest()
     }
 
 
@@ -70,6 +73,7 @@ class RxJavaTestActivity : Activity() {
          *
          * 输出 某市的某个学校的每个学生的名字
          *
+         *
          * */
 
         var abc: ArrayList<ArrayList<Student>> = ArrayList()
@@ -77,5 +81,15 @@ class RxJavaTestActivity : Activity() {
 
         Observable.from(abc)
                 .flatMap({ a: ArrayList<Student> -> Observable.from(a) }).subscribe({ t: Student -> ILog.i(t.name!!) })
+    }
+    private fun ListTest(){
+        /**
+         * kotlin 自带过滤
+         *
+         * */
+        val arrayListOf = arrayListOf(1, 2,3,4,5,6,7,8,9)
+        val filter = arrayListOf.filter { a: Int -> a > 5 }
+        Observable.from(filter)
+                .subscribe({ t -> ILog.i("哈哈哈"+t) })
     }
 }
