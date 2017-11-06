@@ -1,10 +1,8 @@
 package com.xiangyao.train.adapter
 
-import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
-import com.xiangyao.train.base.DemoApplication
 import com.xiangyao.train.bean.Movie
 import xiangyao.yizhilu.com.studyjourny.R
 
