@@ -5,6 +5,7 @@ import android.app.Application
 import android.app.ProgressDialog
 import android.content.Context
 import android.os.Bundle
+import com.alibaba.android.arouter.launcher.ARouter
 import com.facebook.drawee.backends.pipeline.Fresco
 
 import com.orhanobut.logger.Logger
@@ -38,6 +39,9 @@ class DemoApplication : Application() {
         AutoLayoutConifg.getInstance().useDeviceSize()
         Logger.t("xiangyao")
         initFresco()
+        ARouter.openLog()
+//        ARouter.openDebug()
+        ARouter.init(this)
     }
 
     /**

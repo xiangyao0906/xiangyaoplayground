@@ -4,12 +4,9 @@ import android.content.Context
 import android.widget.Toast
 
 /**
- * Created by ming on 2016/12/28 10:01.
- * Explain:
+ * Created by xiangyao on 2017/11/16.
  */
-
 object IToast {
-
     private var toast: Toast? = null
 
     fun show(context: Context, message: String) {
@@ -20,6 +17,4 @@ object IToast {
         }
         toast!!.show()
     }
-
-
 }

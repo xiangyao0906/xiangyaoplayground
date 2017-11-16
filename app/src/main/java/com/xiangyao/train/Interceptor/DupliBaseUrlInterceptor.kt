@@ -14,7 +14,7 @@ class DupliBaseUrlInterceptor : Interceptor {
         //获取request
         val request = chain?.request()
         //获取request的创建者builder
-        val builder = request?.newBuilder()
+        val  builder = request?.newBuilder()
         //从request中获取headers，通过给定的键url_name
         val headerValues = request?.headers(HttpConfig.HEADER_KEY)
         if (headerValues != null && headerValues.size > 0) {

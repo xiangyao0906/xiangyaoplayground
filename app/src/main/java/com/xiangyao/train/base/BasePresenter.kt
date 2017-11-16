@@ -22,6 +22,7 @@ abstract class BasePresenter<V : BaseViewI<*>> : BasePresnterIm {
 
 
             IToast.show(context, "没有网络了")
+
         }
         return NetWorkUtils.isNetWorkAvailable(context)
     }

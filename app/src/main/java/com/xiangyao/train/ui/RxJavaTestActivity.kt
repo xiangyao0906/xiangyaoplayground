@@ -2,18 +2,26 @@ package com.xiangyao.train.ui
 
 import android.app.Activity
 import android.os.Bundle
+import android.widget.ScrollView
+import android.widget.TextView
+import com.alibaba.android.arouter.facade.annotation.Route
 import com.orhanobut.logger.Logger
 import com.xiangyao.train.utils.DateFactory
 import com.xiangyao.train.utils.ILog
 import rx.Observable
-import rx.functions.Action1
 import xiangyao.yizhilu.com.studyjourny.R
+import java.io.BufferedReader
+import java.io.File
+import java.io.IOException
+import java.io.InputStreamReader
 
+@Route(path = "/ui/RxJavaTestActivity")
 class RxJavaTestActivity : Activity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_rx_java_test)
+
 
         kottlinfor()
 
@@ -23,6 +31,7 @@ class RxJavaTestActivity : Activity() {
 
         ListTest()
     }
+
 
 
     /**
@@ -82,14 +91,15 @@ class RxJavaTestActivity : Activity() {
         Observable.from(abc)
                 .flatMap({ a: ArrayList<Student> -> Observable.from(a) }).subscribe({ t: Student -> ILog.i(t.name!!) })
     }
-    private fun ListTest(){
+
+    private fun ListTest() {
         /**
          * kotlin 自带过滤
          *
          * */
-        val arrayListOf = arrayListOf(1, 2,3,4,5,6,7,8,9)
+        val arrayListOf = arrayListOf(1, 2, 3, 4, 5, 6, 7, 8, 9)
         val filter = arrayListOf.filter { a: Int -> a > 5 }
         Observable.from(filter)
-                .subscribe({ t -> ILog.i("哈哈哈"+t) })
+                .subscribe({ t -> ILog.i("哈哈哈" + t) })
     }
 }

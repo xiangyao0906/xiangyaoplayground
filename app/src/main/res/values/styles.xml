@@ -22,49 +22,15 @@
         <item name="actualImageScaleType">centerCrop</item>
     </style>
 
-    <!--登录页面cardView style-->
-    <style name="logincardViewStyle">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">872px</item>
-        <item name="android:layout_gravity">center</item>
-        <item name="android:layout_marginLeft">38px</item>
-        <item name="android:layout_marginRight">38px</item>
-        <item name="android:layout_marginTop">38px</item>
-        <item name="xiangyao.yizhilu.com.studyjourny:cardBackgroundColor">@color/white</item>
-        <item name="xiangyao.yizhilu.com.studyjourny:cardCornerRadius">5px</item>
-        <item name="xiangyao.yizhilu.com.studyjourny:cardElevation">2dp</item>
-        <item name="xiangyao.yizhilu.com.studyjourny:cardUseCompatPadding">true</item>
-    </style>
 
     <style name="loginEditTextline" parent="Theme.AppCompat.Light">
         <item name="colorControlNormal">@color/col_eef1f1</item>
         <item name="colorControlActivated">@color/col_eef1f1</item>
     </style>
-    <!--登录页edtStyle-->
-    <style name="login_edt_style">
-        <item name="android:layout_width">550px</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:maxLines">1</item>
-        <item name="android:textSize">28px</item>
-        <item name="android:textColor">@color/black</item>
-        <item name="android:textColorHint">@color/col_bcbfc3</item>
-        <item name="android:drawablePadding">26px</item>
-        <item name="android:layout_marginTop">58px</item>
-        <item name="android:layout_marginLeft">58px</item>
-        <item name="android:paddingLeft">8px</item>
-        <item name="android:paddingTop">0px</item>
-        <item name="android:paddingBottom">24px</item>
-        <item name="android:textCursorDrawable">@drawable/cursor_color</item>
-
-    </style>
     <!--toolbar公共属性-->
     <style name="toolBarTitleBase">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">100px</item>
-    </style>
-    <!--登录注册页面toolBar风格-->
-    <style name="toolBarTitleLogin" parent="toolBarTitleBase">
-        <item name="android:background">@color/white</item>
     </style>
 
 </resources>

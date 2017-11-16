@@ -2,6 +2,7 @@ package xiangyao.yizhilu.com.studyjourny.ui
 
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
+import com.alibaba.android.arouter.facade.annotation.Route
 import com.android.mvp.base.BaseActivity
 import com.xiangyao.train.adapter.MovieAdapter
 import com.xiangyao.train.bean.Movie
@@ -12,6 +13,7 @@ import com.xiangyao.train.utils.ILog
 import kotlinx.android.synthetic.main.activity_main.*
 import xiangyao.yizhilu.com.studyjourny.R
 
+@Route(path = "/ui/MainActivity")
 class MainActivity : BaseActivity<MainActivityPresenter, Movie>(), MainActivityContract.View {
     /**
      * 注入要替换的View

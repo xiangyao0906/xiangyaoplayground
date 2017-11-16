@@ -3,11 +3,11 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 import org.aspectj.bridge.IMessage
 import org.aspectj.bridge.MessageHandler
 import org.aspectj.tools.ajc.Main
-
 
 
 buildscript {
@@ -101,7 +101,11 @@ android {
 
 }
 
-
+kapt {
+    arguments {
+        arg("moduleName", project.getName())
+    }
+}
 
 
 
@@ -135,4 +139,11 @@ dependencies {
     compile 'cn.bingoogolapple:bga-refreshlayout:1.1.7@aar'
     implementation project(':statelibrary')
     compile 'com.pawegio.kandroid:kandroid:0.8.5@aar'
+    compile 'com.alibaba:arouter-api:1.2.4'
+    kapt 'com.alibaba:arouter-compiler:1.1.4'
+}
+repositories {
+    maven {
+        url 'http://dl.bintray.com/kotlin/kotlin-eap-1.2'
+    }
 }

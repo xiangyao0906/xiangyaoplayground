@@ -35,7 +35,7 @@
             </intent-filter>
         </activity>
         <activity android:name="com.xiangyao.train.ui.RxJavaTestActivity" />
-        <activity android:name="com.xiangyao.train.ui.LogInActivity" />
+        <activity android:name="com.xiangyao.train.ui.GuideActivity"></activity>
     </application>
 
 </manifest>
