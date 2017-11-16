@@ -36,7 +36,7 @@ class DemoApplication : Application() {
         //屏幕适配
         registerActivityLifecycleCallbacks(SwitchBackgroundCallbacks())
         AutoLayoutConifg.getInstance().useDeviceSize()
-        Logger.init("xiangyao")
+        Logger.t("xiangyao")
         initFresco()
     }
 
