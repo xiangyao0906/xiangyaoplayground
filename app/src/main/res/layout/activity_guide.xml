@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?colorPrimary"
-        app:navigationIcon="@mipmap/ic_action_back"
+        app:navigationIcon="@drawable/back"
         app:titleTextColor="@color/white" />
 
     <android.support.v7.widget.RecyclerView

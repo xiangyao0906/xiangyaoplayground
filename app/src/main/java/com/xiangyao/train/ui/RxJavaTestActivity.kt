@@ -2,20 +2,13 @@ package com.xiangyao.train.ui
 
 import android.app.Activity
 import android.os.Bundle
-import android.widget.ScrollView
-import android.widget.TextView
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.orhanobut.logger.Logger
 import com.xiangyao.train.utils.DateFactory
 import com.xiangyao.train.utils.ILog
 import rx.Observable
 import xiangyao.yizhilu.com.studyjourny.R
-import java.io.BufferedReader
-import java.io.File
-import java.io.IOException
-import java.io.InputStreamReader
 
-@Route(path = "/ui/RxJavaTestActivity")
 class RxJavaTestActivity : Activity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

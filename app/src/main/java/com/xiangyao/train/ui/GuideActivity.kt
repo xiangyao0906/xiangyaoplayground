@@ -1,11 +1,8 @@
 package com.xiangyao.train.ui
 
 import android.os.Bundle
-import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.SnapHelper
-import android.util.Log
 import android.view.View
 import com.alibaba.android.arouter.facade.Postcard
 import com.alibaba.android.arouter.facade.annotation.Autowired
@@ -27,7 +24,7 @@ import xiangyao.yizhilu.com.studyjourny.R
 class GuideActivity : AppCompatActivity(), BaseQuickAdapter.OnItemClickListener {
     @Autowired(name = "title")
     lateinit var title: String
-    var activitiesClass: List<Class<*>>? = null
+    private var activitiesClass: List<Class<*>>? = null
 
     override fun onItemClick(adapter: BaseQuickAdapter<*, *>?, view: View?, position: Int) {
 

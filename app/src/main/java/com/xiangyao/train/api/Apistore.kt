@@ -12,11 +12,11 @@ import java.util.*
  */
 
 interface Apistore {
-    /*
-* api 統一管理類
-* **/
+    /**
+     * api 統一管理類
+     * **/
 
     @Headers("xiangyao:douban")
     @GET("v2/movie/top250?")
-    fun getMovie(@Query("start") star:String, @Query("count") count:String): Observable<Movie>
+    fun getMovie(@Query("start") star: String, @Query("count") count: String): Observable<Movie>
 }

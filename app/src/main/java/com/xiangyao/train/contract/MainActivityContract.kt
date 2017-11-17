@@ -10,10 +10,11 @@ import com.xiangyao.train.bean.Movie
 interface MainActivityContract {
 
 
-
-    interface View :BaseViewI<Movie>
+    interface View : BaseViewI<Movie> {
+        fun loadMore()
+    }
 
     interface Presenter {
-        fun getData(start: String, count: String)
+        fun getData(start: String, count: String, type: String)
     }
 }
