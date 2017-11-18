@@ -13,7 +13,6 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?colorPrimary"
-        app:navigationIcon="@drawable/back"
         app:title="movie"
         app:titleTextColor="@color/white" />
 

@@ -1,6 +1,7 @@
 package xiangyao.yizhilu.com.studyjourny.ui
 
 import android.graphics.Color
+import android.support.design.widget.Snackbar
 import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
@@ -17,7 +18,11 @@ import kotlinx.android.synthetic.main.activity_main.*
 import xiangyao.yizhilu.com.studyjourny.R
 
 @Route(path = "/ui/MainActivity")
-class MainActivity : BaseActivity<MainActivityPresenter, Movie>(), MainActivityContract.View, BaseQuickAdapter.RequestLoadMoreListener, SwipeRefreshLayout.OnRefreshListener {
+class MainActivity : BaseActivity<MainActivityPresenter, Movie>(), MainActivityContract.View, BaseQuickAdapter.RequestLoadMoreListener, SwipeRefreshLayout.OnRefreshListener, BaseQuickAdapter.OnItemChildClickListener {
+    override fun onItemChildClick(adapter: BaseQuickAdapter<*, *>?, view: View?, position: Int) {
+        view?.let { Snackbar.make(it,"当前的位置 $position ",Snackbar.LENGTH_SHORT).show() }
+    }
+
     override fun loadMore() {
         Log.i("xiangyao", "加载更多")
         (movie_list.adapter as MovieAdapter).setNewData(datas.subjects!!)
@@ -33,6 +38,7 @@ class MainActivity : BaseActivity<MainActivityPresenter, Movie>(), MainActivityC
     override fun onRefresh() {
         type = "onRefresh"
         mPresenter.getData("0", "0", type)
+        swipeLayout.isRefreshing = false
     }
 
     override fun onLoadMoreRequested() {
@@ -67,6 +73,8 @@ class MainActivity : BaseActivity<MainActivityPresenter, Movie>(), MainActivityC
         (movie_list.adapter as MovieAdapter).setOnLoadMoreListener(this, movie_list)
 
         currentcount = (movie_list.adapter as MovieAdapter).data.size
+
+        (movie_list.adapter as MovieAdapter).onItemChildClickListener=this
     }
 
     override fun showDataSuccess(datas: Movie) {

@@ -11,8 +11,10 @@ object HttpConfig {
     *
     * **/
     var BASEURL = "https://api.douban.com/"
+    var CIBABASEURL = "https://api.douban.com/"
     var HEADER_KEY = "xiangyao"
     var DOUBAN = "douban"
+    var CIBA = "ciba"
 
 
 }

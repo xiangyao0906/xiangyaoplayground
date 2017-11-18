@@ -42,5 +42,7 @@ class MovieAdapter
         helper.setText(R.id.movie_dirctor, item?.directors?.get(0)?.name)
         helper.setText(R.id.showtime, item?.year)
 
+        helper.addOnClickListener(R.id.rootview)
+
     }
 }

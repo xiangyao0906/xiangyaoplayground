@@ -10,7 +10,6 @@ import android.content.pm.PackageManager
  */
 object ClassUtils {
     private val TAG = "ClassUtils"
-    private fun ClassUtils() = Unit
 
     /**
      * 返回AndroidManifest.xml中注册的所有Activity的class

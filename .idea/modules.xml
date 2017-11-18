@@ -4,9 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/android-pathview/android-pathview.iml" filepath="$PROJECT_DIR$/android-pathview/android-pathview.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://E:\xiangyaoplayground\apt\apt.iml" filepath="E:\xiangyaoplayground\apt\apt.iml" />
-      <module fileurl="file://E:\xiangyaoplayground\lib\lib.iml" filepath="E:\xiangyaoplayground\lib\lib.iml" />
-      <module fileurl="file://E:\xiangyaoplayground\router\router.iml" filepath="E:\xiangyaoplayground\router\router.iml" />
       <module fileurl="file://$PROJECT_DIR$/statelibrary/statelibrary.iml" filepath="$PROJECT_DIR$/statelibrary/statelibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/xiangyaoplayground.iml" filepath="$PROJECT_DIR$/xiangyaoplayground.iml" />
     </modules>

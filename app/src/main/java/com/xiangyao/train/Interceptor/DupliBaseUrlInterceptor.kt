@@ -14,7 +14,7 @@ class DupliBaseUrlInterceptor : Interceptor {
         //获取request
         val request = chain?.request()
         //获取request的创建者builder
-        val  builder = request?.newBuilder()
+        val builder = request?.newBuilder()
         //从request中获取headers，通过给定的键url_name
         val headerValues = request?.headers(HttpConfig.HEADER_KEY)
         if (headerValues != null && headerValues.size > 0) {
@@ -39,6 +39,8 @@ class DupliBaseUrlInterceptor : Interceptor {
 
             newBaseUrl = if (HttpConfig.DOUBAN == headerValue) {
                 HttpUrl.parse(HttpConfig.BASEURL)
+            } else if (HttpConfig.CIBA == headerValue) {
+                HttpUrl.parse(HttpConfig.CIBABASEURL)
             } else {
                 //默认主域名
                 HttpUrl.parse(HttpConfig.BASEURL)

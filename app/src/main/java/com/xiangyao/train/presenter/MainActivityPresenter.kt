@@ -14,7 +14,6 @@ import rx.Subscriber
 
 class MainActivityPresenter(re: RecyclerView) : BasePresenter<MainActivityContract.View>(), MainActivityContract.Presenter {
 
-
     companion object {
         var modle: MainActivityModel = MainActivityModel()
 
@@ -33,6 +32,8 @@ class MainActivityPresenter(re: RecyclerView) : BasePresenter<MainActivityContra
                 }
 
             }
+
+
 
             override fun onError(e: Throwable) {
                 Log.i("wulalalal", "onError" + e.message)
@@ -53,6 +54,7 @@ class MainActivityPresenter(re: RecyclerView) : BasePresenter<MainActivityContra
         }))
 
     }
+
 
 
 }

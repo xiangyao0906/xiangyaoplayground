@@ -3,9 +3,9 @@ package com.xiangyao.train.base
 import android.content.Context
 import com.xiangyao.train.utils.IToast
 import com.xiangyao.train.utils.NetWorkUtils
-
 import rx.Subscription
 import rx.subscriptions.CompositeSubscription
+
 
 /**
  *2017年9月23日 11:31:40 author by xiangyao
