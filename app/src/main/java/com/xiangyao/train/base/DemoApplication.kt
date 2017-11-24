@@ -40,7 +40,6 @@ class DemoApplication : Application() {
         Logger.t("xiangyao")
         initFresco()
         ARouter.openLog()
-//        ARouter.openDebug()
         ARouter.init(this)
     }
 
