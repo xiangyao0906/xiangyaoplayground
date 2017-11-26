@@ -23,14 +23,14 @@ object ClassUtils {
         val returnClassList = ArrayList<Class<*>>()
         try {
             //Get all activity classes in the AndroidManifest.xml
-            val packageInfo = context.getPackageManager().getPackageInfo(packageName, PackageManager.GET_ACTIVITIES)
+            val packageInfo = context.packageManager.getPackageInfo(packageName, PackageManager.GET_ACTIVITIES)
             if (packageInfo.activities != null) {
                 for (ai in packageInfo.activities) {
                     val c: Class<*>
                     try {
                         c = Class.forName(ai.name)
                         // Maybe isAssignableFrom is unnecessary
-                        if (Activity::class.java!!.isAssignableFrom(c)) {
+                        if (Activity::class.java.isAssignableFrom(c)) {
                             returnClassList.add(c)
                         }
                     } catch (e: ClassNotFoundException) {
