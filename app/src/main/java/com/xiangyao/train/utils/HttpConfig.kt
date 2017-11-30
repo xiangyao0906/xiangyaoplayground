@@ -14,7 +14,8 @@ object HttpConfig {
     var CIBABASEURL = "https://api.douban.com/"
     var HEADER_KEY = "xiangyao"
     var DOUBAN = "douban"
+    var GANKIO = "gankio"
+    var GANKIOBASEURL = "http://gank.io/"
     var CIBA = "ciba"
-
 
 }

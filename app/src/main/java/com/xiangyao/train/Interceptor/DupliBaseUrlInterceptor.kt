@@ -24,13 +24,6 @@ class DupliBaseUrlInterceptor : Interceptor {
             //匹配获得新的BaseUrl
             val headerValue = headerValues[0]
             val newBaseUrl: HttpUrl?
-
-            /**
-             *
-             * 这里拦截到对应的header
-             * 重新设置新的域名
-             */
-
             /**
              *
              * 这里拦截到对应的header
@@ -41,6 +34,8 @@ class DupliBaseUrlInterceptor : Interceptor {
                 HttpUrl.parse(HttpConfig.BASEURL)
             } else if (HttpConfig.CIBA == headerValue) {
                 HttpUrl.parse(HttpConfig.CIBABASEURL)
+            } else if (HttpConfig.GANKIO == (headerValue)) {
+                HttpUrl.parse(HttpConfig.GANKIOBASEURL)
             } else {
                 //默认主域名
                 HttpUrl.parse(HttpConfig.BASEURL)

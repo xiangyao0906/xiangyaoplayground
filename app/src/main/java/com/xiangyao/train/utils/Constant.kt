@@ -25,4 +25,5 @@ object Constant {
      * SP中判断用户是否第一次安装的key
      */
     var FIRSTINSTALL = "firstInstall"
+
 }

@@ -3,14 +3,12 @@ package xiangyao.yizhilu.com.studyjourny.ui
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.Window
+import android.view.WindowManager
 import android.view.animation.AccelerateDecelerateInterpolator
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
 import kotlinx.android.synthetic.main.activity_welcome.*
 import xiangyao.yizhilu.com.studyjourny.R
-import android.view.WindowManager.LayoutParams.FLAG_FULLSCREEN
-import android.view.Window.FEATURE_NO_TITLE
-import android.view.WindowManager
 
 
 @Route(path = "/ui/WelcomeActivity")
