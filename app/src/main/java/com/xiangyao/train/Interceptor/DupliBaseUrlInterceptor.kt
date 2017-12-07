@@ -25,25 +25,17 @@ class DupliBaseUrlInterceptor : Interceptor {
             val headerValue = headerValues[0]
             val newBaseUrl: HttpUrl?
             /**
-             *
              * 这里拦截到对应的header
              * 重新设置新的域名
              */
-
-            newBaseUrl = if (HttpConfig.DOUBAN == headerValue) {
-                HttpUrl.parse(HttpConfig.BASEURL)
-            } else if (HttpConfig.CIBA == headerValue) {
-                HttpUrl.parse(HttpConfig.CIBABASEURL)
-            } else if (HttpConfig.GANKIO == (headerValue)) {
-                HttpUrl.parse(HttpConfig.GANKIOBASEURL)
-            } else {
-                //默认主域名
-                HttpUrl.parse(HttpConfig.BASEURL)
+            newBaseUrl = when {
+                HttpConfig.DOUBAN == headerValue -> HttpUrl.parse(HttpConfig.BASEURL)
+                HttpConfig.CIBA == headerValue -> HttpUrl.parse(HttpConfig.CIBABASEURL)
+                HttpConfig.GANKIO == (headerValue) -> HttpUrl.parse(HttpConfig.GANKIOBASEURL)
+                else -> //默认主域名
+                    HttpUrl.parse(HttpConfig.BASEURL)
             }
-
             //从request中获取原有的HttpUrl实例oldHttpUrl
-
-
             val oldHttpUrl = request.url()
             //重建新的HttpUrl，修改需要修改的url部分
             val newFullUrl = oldHttpUrl

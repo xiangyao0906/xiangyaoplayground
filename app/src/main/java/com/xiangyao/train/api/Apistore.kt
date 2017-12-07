@@ -18,8 +18,6 @@ interface Apistore {
      * **/
 
 
-
-
     @Headers("xiangyao:douban")
     @GET("v2/movie/top250?")
     fun getMovie(@Query("start") star: String, @Query("count") count: String): Observable<Movie>

@@ -3,6 +3,7 @@ package com.xiangyao.train.model
 import com.xiangyao.train.api.ApiManager
 import com.xiangyao.train.bean.Fuli
 import com.xiangyao.train.contract.GankIoActivityContract
+import com.xiangyao.train.utils.RxScedulerHelper
 
 import rx.Observable
 import rx.android.schedulers.AndroidSchedulers
@@ -17,7 +18,6 @@ class GankIoActivityModel : GankIoActivityContract.Model {
 
 
     override fun findSomeFuli(): Observable<Fuli> {
-        return ApiManager.getApistore()!!.getFuli().subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
+        return ApiManager.getApistore()!!.getFuli().compose(RxScedulerHelper.io_main())
     }
 }

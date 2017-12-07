@@ -18,16 +18,12 @@ object NetWorkUtils {
      */
     fun isNetWorkAvailable(context: Context): Boolean {
         val connectivityManager = context.applicationContext.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-        if (connectivityManager == null) {
+        val info = connectivityManager.activeNetworkInfo
+        if (info == null) {
             return false
         } else {
-            val info = connectivityManager.activeNetworkInfo
-            if (info == null) {
-                return false
-            } else {
-                if (info.isAvailable) {
-                    return true
-            }
+            if (info.isAvailable) {
+                return true
             }
         }
         return false

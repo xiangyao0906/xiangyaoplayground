@@ -78,5 +78,5 @@ dependencies {
     compile 'com.pawegio.kandroid:kandroid:0.8.5@aar'
     compile 'com.alibaba:arouter-api:1.2.4'
     kapt 'com.alibaba:arouter-compiler:1.1.4'
-    compile 'io.reactivex.rxjava2:rxjava:2.1.6'
+    compile 'io.reactivex.rxjava2:rxjava:2.1.7'
 }

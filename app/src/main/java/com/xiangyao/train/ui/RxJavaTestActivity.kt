@@ -2,8 +2,6 @@ package com.xiangyao.train.ui
 
 import android.app.Activity
 import android.os.Bundle
-import com.alibaba.android.arouter.facade.annotation.Route
-import com.orhanobut.logger.Logger
 import com.xiangyao.train.utils.DateFactory
 import com.xiangyao.train.utils.ILog
 import rx.Observable
@@ -24,7 +22,6 @@ class RxJavaTestActivity : Activity() {
 
         ListTest()
     }
-
 
 
     /**
@@ -66,7 +63,7 @@ class RxJavaTestActivity : Activity() {
          *
          * */
         Observable.just(1, 2, 3, 4, 5)
-                .map({ t: Int? -> t.toString() + "转换流" }).subscribe({ t: String -> Logger.i(t) })
+                .map({ t: Int? -> t.toString() + "转换流" }).subscribe({ t: String -> ILog.i(t) })
     }
 
     private fun rxflatMap() {

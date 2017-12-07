@@ -11,7 +11,7 @@ import rx.Subscriber
  * @author xiangyao
  * @date 2017/11/30
  */
-
+// Can be reused
 class GankIoActivityPresenter : BasePresenter<GankIoActivityContract.View>(), GankIoActivityContract.Presenter {
     companion object {
         var model = GankIoActivityModel()
