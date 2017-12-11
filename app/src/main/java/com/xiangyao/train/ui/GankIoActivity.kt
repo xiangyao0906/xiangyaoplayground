@@ -20,7 +20,7 @@ class GankIoActivity : BaseActivity<GankIoActivityPresenter, Fuli>(), GankIoActi
 
     override fun setAdapter() {
         meizi_recycleview.layoutManager = LinearLayoutManager(this)
-        meizi_recycleview.adapter = GankIoAdapter(R.layout.gankio_item, fuli.results)
+        meizi_recycleview.adapter = GankIoAdapter(R.layout.gankio_item, fuli.results!!)
 
     }
 

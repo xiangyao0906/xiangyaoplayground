@@ -3,7 +3,6 @@ package com.xiangyao.train.api
 import com.xiangyao.train.Interceptor.DupliBaseUrlInterceptor
 import com.xiangyao.train.utils.HttpConfig
 import com.xiangyao.train.utils.HttpLog
-import okhttp3.HttpUrl
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

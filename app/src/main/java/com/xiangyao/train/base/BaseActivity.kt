@@ -12,6 +12,7 @@ import com.github.nukc.stateview.StateView
 import com.xiangyao.train.base.BasePresnterIm
 import com.xiangyao.train.base.BaseViewI
 import com.xiangyao.train.base.DemoApplication
+import com.xiangyao.train.utils.GeneralUtil
 import com.xiangyao.train.utils.KeyBoardUtils
 import xiangyao.yizhilu.com.studyjourny.R
 
@@ -206,8 +207,8 @@ abstract class BaseActivity<T : BasePresnterIm, V> : Activity(), BaseViewI<V> {
         // TODO Auto-generated method stub
         if (ev.action == MotionEvent.ACTION_DOWN) {
             val view = currentFocus
-            if (GeneralUtil.isHideInput(view, ev)) {
-                KeyBoardUtils.HideSoftInput(view!!.windowToken,
+            if (KeyBoardUtils.isShouldHideKeyboard(view, ev)) {
+                KeyBoardUtils.hideSoftInput(view!!.windowToken,
                         applicationContext)
             }
 
