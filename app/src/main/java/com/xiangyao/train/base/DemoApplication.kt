@@ -7,11 +7,9 @@ import android.content.Context
 import android.os.Bundle
 import com.alibaba.android.arouter.launcher.ARouter
 import com.facebook.drawee.backends.pipeline.Fresco
-
 import com.orhanobut.logger.Logger
 import com.zhy.autolayout.config.AutoLayoutConifg
-
-import java.util.Stack
+import java.util.*
 
 /**
  * description: app
@@ -39,8 +37,10 @@ class DemoApplication : Application() {
         AutoLayoutConifg.getInstance().useDeviceSize()
         Logger.t("xiangyao")
         initFresco()
-        ARouter.openLog()
-        ARouter.init(this)
+
+        ARouter.openLog()   // 打印日志
+        ARouter.openDebug()  // 开启调试模式(如果在InstantRun模式下运行，必须开启调试模式！线上版本需要关闭,否则有安全风险)
+        ARouter.init(this) // 尽可能早，推荐在Application中初始化
     }
 
     /**

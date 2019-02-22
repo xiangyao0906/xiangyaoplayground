@@ -38,9 +38,7 @@ abstract class BaseActivity<T : BasePresnterIm, V> : Activity(), BaseViewI<V> {
 
         TAG = this.javaClass.simpleName
 
-        if (null != getPresenter()) {
-            mPresenter = getPresenter()
-        }
+        mPresenter = getPresenter()
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP)
             setTranslucentStatus()
@@ -116,9 +114,7 @@ abstract class BaseActivity<T : BasePresnterIm, V> : Activity(), BaseViewI<V> {
     override fun onDestroy() {
         super.onDestroy()
         application = null
-        if (mPresenter != null) {
-            mPresenter!!.unsubcrible()
-        }
+        mPresenter.unsubcrible()
     }
 
     override fun showDataError(errorMessage: String) {

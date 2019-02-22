@@ -5,13 +5,12 @@ import android.support.v7.app.AppCompatActivity
 import android.view.Window
 import android.view.WindowManager
 import android.view.animation.AccelerateDecelerateInterpolator
-import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
+import com.xiangyao.train.utils.RouteConstant
 import kotlinx.android.synthetic.main.activity_welcome.*
 import xiangyao.yizhilu.com.studyjourny.R
 
 
-@Route(path = "/ui/WelcomeActivity")
 class WelcomeActivity : AppCompatActivity() {
 
     /*
@@ -41,9 +40,15 @@ class WelcomeActivity : AppCompatActivity() {
                 .duration(1500)
                 .interpolator(AccelerateDecelerateInterpolator())
                 .listenerEnd {
-                    ARouter.getInstance().build("/ui/GuideActivity")
-                            .withString("title", "引导页")
+
+//
+
+
+                    ARouter.getInstance()
+                            .build(RouteConstant.GUIDEACTIVITY)
+                            .withString("title","欢迎回家")
                             .navigation()
+
                     finish()
                 }
                 .start()

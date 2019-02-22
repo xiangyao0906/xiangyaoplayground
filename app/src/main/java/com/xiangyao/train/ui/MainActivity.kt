@@ -14,10 +14,11 @@ import com.xiangyao.train.bean.Movie
 import com.xiangyao.train.contract.MainActivityContract
 import com.xiangyao.train.presenter.MainActivityPresenter
 import com.xiangyao.train.utils.Constant
+import com.xiangyao.train.utils.RouteConstant
 import kotlinx.android.synthetic.main.activity_main.*
 import xiangyao.yizhilu.com.studyjourny.R
 
-@Route(path = "/ui/MainActivity")
+@Route(path = RouteConstant.MAINACTIVITY)
 class MainActivity : BaseActivity<MainActivityPresenter, Movie>(), MainActivityContract.View, BaseQuickAdapter.RequestLoadMoreListener, SwipeRefreshLayout.OnRefreshListener, BaseQuickAdapter.OnItemChildClickListener {
     override fun onItemChildClick(adapter: BaseQuickAdapter<*, *>?, view: View?, position: Int) {
         view?.let { Snackbar.make(it,"当前的位置 $position ",Snackbar.LENGTH_SHORT).show() }

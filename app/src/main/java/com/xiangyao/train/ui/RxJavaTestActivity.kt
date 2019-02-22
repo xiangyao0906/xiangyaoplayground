@@ -2,11 +2,15 @@ package com.xiangyao.train.ui
 
 import android.app.Activity
 import android.os.Bundle
+import com.alibaba.android.arouter.facade.annotation.Route
 import com.xiangyao.train.utils.DateFactory
 import com.xiangyao.train.utils.ILog
+import com.xiangyao.train.utils.RouteConstant
 import rx.Observable
 import xiangyao.yizhilu.com.studyjourny.R
 
+
+@Route(path = RouteConstant.RXJAVAACTIVITY)
 class RxJavaTestActivity : Activity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
