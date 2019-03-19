@@ -67,7 +67,7 @@ class RxJavaTestActivity : Activity() {
          *
          * */
         Observable.just(1, 2, 3, 4, 5)
-                .map({ t: Int? -> t.toString() + "转换流" }).subscribe({ t: String -> ILog.i(t) })
+                .map { t: Int? -> t.toString() + "转换流" }.subscribe({ t: String -> ILog.i(t) })
     }
 
     private fun rxflatMap() {
@@ -83,7 +83,7 @@ class RxJavaTestActivity : Activity() {
         abc.add(DateFactory.getInputObject(10))
 
         Observable.from(abc)
-                .flatMap({ a: ArrayList<Student> -> Observable.from(a) }).subscribe({ t: Student -> ILog.i(t.name!!) })
+                .flatMap { a: ArrayList<Student> -> Observable.from(a) }.subscribe { t: Student -> ILog.i(t.name!!) }
     }
 
     private fun ListTest() {
@@ -94,6 +94,6 @@ class RxJavaTestActivity : Activity() {
         val arrayListOf = arrayListOf(1, 2, 3, 4, 5, 6, 7, 8, 9)
         val filter = arrayListOf.filter { a: Int -> a > 5 }
         Observable.from(filter)
-                .subscribe({ t -> ILog.i("哈哈哈" + t) })
+                .subscribe { t -> ILog.i("哈哈哈$t") }
     }
 }

@@ -5,7 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/android-pathview/android-pathview.iml" filepath="$PROJECT_DIR$/android-pathview/android-pathview.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/statelibrary/statelibrary.iml" filepath="$PROJECT_DIR$/statelibrary/statelibrary.iml" />
-      <module fileurl="file://$PROJECT_DIR$/xiangyaoplayground.iml" filepath="$PROJECT_DIR$/xiangyaoplayground.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/xiangyaoplayground.iml" filepath="$PROJECT_DIR$/.idea/xiangyaoplayground.iml" />
     </modules>
   </component>
 </project>
