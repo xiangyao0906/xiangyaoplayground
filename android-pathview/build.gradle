@@ -2,12 +2,12 @@ apply plugin: 'com.android.library'
 
 
 android {
-    compileSdkVersion 21
-    buildToolsVersion '26.0.2'
+    compileSdkVersion 28
+    buildToolsVersion '26.0.3'
 
     defaultConfig {
-        minSdkVersion 9
-        targetSdkVersion 21
+        minSdkVersion 14
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
     }
@@ -23,5 +23,5 @@ configurations {
 
 dependencies {
     compile files('libs/androidsvg-1.2.1.jar')
-    compile 'com.nineoldandroids:library:2.4.0'
+    api 'com.nineoldandroids:library:2.4.0'
 }

@@ -1,6 +1,6 @@
 package com.xiangyao.train.presenter
 
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.util.Log
 import com.xiangyao.train.base.BasePresenter
 import com.xiangyao.train.bean.Movie

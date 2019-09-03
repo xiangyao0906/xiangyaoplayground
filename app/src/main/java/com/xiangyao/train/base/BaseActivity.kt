@@ -5,7 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import android.support.v4.view.ViewCompat
+import androidx.core.view.ViewCompat
 import android.view.*
 import android.widget.FrameLayout
 import com.github.nukc.stateview.StateView
@@ -203,9 +203,11 @@ abstract class BaseActivity<T : BasePresnterIm, V> : Activity(), BaseViewI<V> {
         // TODO Auto-generated method stub
         if (ev.action == MotionEvent.ACTION_DOWN) {
             val view = currentFocus
-            if (KeyBoardUtils.isShouldHideKeyboard(view, ev)) {
-                KeyBoardUtils.hideSoftInput(view!!.windowToken,
-                        applicationContext)
+            if (view != null) {
+                if (KeyBoardUtils.isShouldHideKeyboard(view, ev)) {
+                    KeyBoardUtils.hideSoftInput(view.windowToken,
+                            applicationContext)
+                }
             }
 
         }

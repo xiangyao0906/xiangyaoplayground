@@ -13,5 +13,7 @@ class GankIoAdapter(res: Int, result: List<Fuli.Results>) : BaseQuickAdapter<Ful
     override fun convert(helper: BaseViewHolder?, item: Fuli.Results?) {
 
         Glide.with(mContext).load(item?.url).into(helper?.getView(R.id.meizi))
+
+        helper?.addOnClickListener(R.id.meizi)
     }
 }

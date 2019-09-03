@@ -1,9 +1,9 @@
 package xiangyao.yizhilu.com.studyjourny.ui
 
 import android.graphics.Color
-import android.support.design.widget.Snackbar
-import android.support.v4.widget.SwipeRefreshLayout
-import android.support.v7.widget.LinearLayoutManager
+import com.google.android.material.snackbar.Snackbar
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import androidx.recyclerview.widget.LinearLayoutManager
 import android.util.Log
 import android.view.View
 import com.alibaba.android.arouter.facade.annotation.Route
@@ -21,7 +21,7 @@ import xiangyao.yizhilu.com.studyjourny.R
 @Route(path = RouteConstant.MAINACTIVITY)
 class MainActivity : BaseActivity<MainActivityPresenter, Movie>(), MainActivityContract.View, BaseQuickAdapter.RequestLoadMoreListener, SwipeRefreshLayout.OnRefreshListener, BaseQuickAdapter.OnItemChildClickListener {
     override fun onItemChildClick(adapter: BaseQuickAdapter<*, *>?, view: View?, position: Int) {
-        view?.let { Snackbar.make(it,"当前的位置 $position ",Snackbar.LENGTH_SHORT).show() }
+        view?.let { Snackbar.make(it,"当前的位置 $position ", Snackbar.LENGTH_SHORT).show() }
     }
 
     override fun loadMore() {
