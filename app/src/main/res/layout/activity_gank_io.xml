@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.xiangyao.train.ui.GankIoActivity">
+    tools:context="com.xiangyao.train.ui.GanIoActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/movie_toolbar"

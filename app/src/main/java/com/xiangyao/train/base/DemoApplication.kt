@@ -6,8 +6,10 @@ import android.app.ProgressDialog
 import android.content.Context
 import android.os.Bundle
 import com.alibaba.android.arouter.launcher.ARouter
-import com.facebook.drawee.backends.pipeline.Fresco
 import com.orhanobut.logger.Logger
+import com.scwang.smartrefresh.layout.SmartRefreshLayout
+import com.scwang.smartrefresh.layout.footer.ClassicsFooter
+import com.scwang.smartrefresh.layout.header.ClassicsHeader
 import com.zhy.autolayout.config.AutoLayoutConifg
 import java.util.*
 
@@ -36,27 +38,27 @@ class DemoApplication : Application() {
         registerActivityLifecycleCallbacks(SwitchBackgroundCallbacks())
         AutoLayoutConifg.getInstance().useDeviceSize()
         Logger.t("xiangyao")
-        initFresco()
 
         ARouter.openLog()   // 打印日志
         ARouter.openDebug()  // 开启调试模式(如果在InstantRun模式下运行，必须开启调试模式！线上版本需要关闭,否则有安全风险)
         ARouter.init(this) // 尽可能早，推荐在Application中初始化
     }
 
-    /**
-     * 初始化fresco
-     */
-    private fun initFresco() {
-        Fresco.initialize(DemoApplication.appContext)
+    //static 代码段可以防止内存泄露
+    init {
+        //设置全局的Header构建器
+        SmartRefreshLayout.setDefaultRefreshHeaderCreator { context, layout ->
+            ClassicsHeader(
+                    context
+            )
+        }
+        //设置全局的Footer构建器
+        SmartRefreshLayout.setDefaultRefreshFooterCreator { context, layout ->
+            ClassicsFooter(
+                    context
+            ).setDrawableSize(20f)
+        }
     }
-
-    /**
-     * 获取当前的Activity
-
-     * @return
-     */
-    val curActivity: Activity
-        get() = store!!.lastElement()
 
 
     private inner class SwitchBackgroundCallbacks : Application.ActivityLifecycleCallbacks {
@@ -91,6 +93,6 @@ class DemoApplication : Application() {
     }
 
     companion object {
-        var appContext: DemoApplication? = null
+        lateinit var appContext: DemoApplication
     }
 }

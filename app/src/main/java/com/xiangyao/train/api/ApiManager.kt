@@ -15,19 +15,23 @@ import java.util.concurrent.TimeUnit
  */
 
 object ApiManager {
-    private var apistore: Apistore? = null
+    private var apistore: ApiStore? = null
     private val TIME_OUT: Long = 5000
 
-
-    fun getApistore(): Apistore? {
+    @Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
+    fun getApistore(): ApiStore? {
         synchronized(ApiManager::class.java) {
             if (apistore == null) {
                 val logging = HttpLoggingInterceptor(HttpLog())
                 logging.level = HttpLoggingInterceptor.Level.BODY
+                val sslParams = SSL.getSslSocketFactory(CertificateProvider.getCertificateStreams(HttpConfig.BASEURL), null, null)
                 val okHttpClient = OkHttpClient.Builder()
                         .connectTimeout(TIME_OUT, TimeUnit.MILLISECONDS)
+                        .sslSocketFactory(sslParams.sSLSocketFactory, sslParams.trustManager)
+                        .hostnameVerifier { _, _ -> true }
                         //添加应用拦截器
                         .addInterceptor(DupliBaseUrlInterceptor())
+
                         //添加拦截器到OkHttp
                         .addInterceptor(logging)
                         .build()
@@ -38,7 +42,7 @@ object ApiManager {
                         .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                         .client(okHttpClient)
                         .build()
-                apistore = retrofit.create(Apistore::class.java)
+                apistore = retrofit.create(ApiStore::class.java)
             }
         }
         return apistore

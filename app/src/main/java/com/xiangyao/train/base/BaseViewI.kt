@@ -14,8 +14,6 @@ interface BaseViewI<V> {
      */
     fun showDataSuccess(datas: V)
 
-    fun setAdapter()
-
     /**
      * 显示加载进度
      */
@@ -36,10 +34,6 @@ interface BaseViewI<V> {
      */
     fun showContent()
 
-    /**
-     * 显示重试布局
-     */
-     fun showRetryView()
 
 
 }

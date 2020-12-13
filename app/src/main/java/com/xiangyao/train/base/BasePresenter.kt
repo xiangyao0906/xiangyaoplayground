@@ -1,8 +1,8 @@
 package com.xiangyao.train.base
 
 import android.content.Context
-import com.xiangyao.train.utils.IToast
 import com.xiangyao.train.utils.NetWorkUtils
+import com.xiangyao.train.utils.showAtCenter
 import rx.Subscription
 import rx.subscriptions.CompositeSubscription
 
@@ -21,8 +21,7 @@ abstract class BasePresenter<V : BaseViewI<*>> : BasePresnterIm {
         if (!NetWorkUtils.isNetWorkAvailable(context)) {
 
 
-            IToast.show(context, "没有网络了")
-
+            "没有网络了".showAtCenter()
         }
         return NetWorkUtils.isNetWorkAvailable(context)
     }

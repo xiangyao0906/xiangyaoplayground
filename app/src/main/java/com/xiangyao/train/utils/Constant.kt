@@ -1,6 +1,5 @@
 package com.xiangyao.train.utils
 
-import com.chad.library.adapter.base.BaseQuickAdapter
 
 /**
  * Created by xiangyao on 2017/9/24.
@@ -13,8 +12,6 @@ object Constant {
     var INTDEFAULT = -1
     //默认的String
     var STRINGDEFAULT = ""
-    //全局动画的常量字段
-    var GLOPBALLANIMA = BaseQuickAdapter.SCALEIN
     //Uri 在线模式
     var ONLINEPIC = 1
     //Uri 本地模式

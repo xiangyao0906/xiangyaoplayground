@@ -19,6 +19,7 @@
     <color name="font_black_4">#9e9e9e</color>
     <color name="font_black_5">#bdbdbd</color>
     <color name="font_black_6">#e0e0e0</color>
+    <color name="bg_normal">#f4f4f4</color>
 
     <!--底部导航栏颜色-->
     <color name="col_3e83e5">#3e83e5</color>
@@ -131,4 +132,6 @@
     <color name="col_383838">#383838</color>
     <color name="col_9f9f9f">#9f9f9f</color>
 
+    <color name="toast_bg">#000000</color>
+    <color name="toast_text_color">#ffffff</color>
 </resources>

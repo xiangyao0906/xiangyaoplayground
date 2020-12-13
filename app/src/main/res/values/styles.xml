@@ -13,15 +13,6 @@
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 
-    <!--fresco圆角公用公共属性(圆角图片)-->
-    <style name="simpleDDraweeViewStyle">
-        <item name="roundBottomRight">true</item>
-        <item name="roundTopLeft">true</item>
-        <item name="roundTopRight">true</item>
-        <item name="roundedCornerRadius">8px</item>
-        <item name="actualImageScaleType">centerCrop</item>
-    </style>
-
 
     <style name="loginEditTextline" parent="Theme.AppCompat.Light">
         <item name="colorControlNormal">@color/col_eef1f1</item>

@@ -15,7 +15,9 @@ object HttpConfig {
     var HEADER_KEY = "xiangyao"
     var DOUBAN = "douban"
     var GANKIO = "gankio"
-    var GANKIOBASEURL = "http://gank.io/"
+    var MAOMOVIE = "maoyan"
+    var GANKIOBASEURL = "https://gank.io/"
     var CIBA = "ciba"
+    var MAOMOVIEBASEURL="https://www.softeem.xin/"
 
 }

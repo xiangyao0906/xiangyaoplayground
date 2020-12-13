@@ -20,21 +20,14 @@ import xiangyao.yizhilu.com.studyjourny.R
  */
 
 @Route(path = RouteConstant.GUIDEACTIVITY)
-class GuideActivity : AppCompatActivity(), BaseQuickAdapter.OnItemClickListener {
+class GuideActivity : AppCompatActivity() {
+
+    private lateinit var guideAdapter: GuideAdapter
 
     @Autowired
-    @JvmField var  title=""
+    @JvmField
+    var title = ""
     private var activitiesClass: List<Class<*>>? = null
-
-    override fun onItemClick(adapter: BaseQuickAdapter<*, *>?, view: View?, position: Int) {
-
-        var target = RouteConstant.ROUTEGROUP.plus(activitiesClass?.get(position)?.simpleName)
-        ARouter.getInstance()
-                .build(target)
-                .navigation()
-
-
-    }
 
 
     public override fun onCreate(savedInstanceState: Bundle?) {
@@ -64,10 +57,20 @@ class GuideActivity : AppCompatActivity(), BaseQuickAdapter.OnItemClickListener 
      * 展示
      * */
     private fun preview() {
-        guide_listview.layoutManager = LinearLayoutManager(this)
-        guide_listview.addItemDecoration(RecycleViewDivider(this, LinearLayoutManager.VERTICAL))
-        guide_listview.adapter = GuideAdapter(R.layout.guide_item_view, activitiesClass)
-        (guide_listview.adapter as GuideAdapter).onItemClickListener = this
+        guideRV.layoutManager = LinearLayoutManager(this)
+        guideRV.addItemDecoration(RecycleViewDivider(this, LinearLayoutManager.VERTICAL))
+        guideAdapter = GuideAdapter(R.layout.guide_item_view, activitiesClass as MutableList<Class<*>>?)
+        guideRV.adapter = guideAdapter
+
+        guideAdapter.setOnItemClickListener { _, _, position ->
+
+            val target = RouteConstant.ROUTEGROUP.plus(activitiesClass?.get(position)?.simpleName)
+            ARouter.getInstance()
+                    .build(target)
+                    .navigation()
+
+
+        }
 
     }
 

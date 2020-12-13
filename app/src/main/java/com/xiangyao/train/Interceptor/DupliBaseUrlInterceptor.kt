@@ -32,6 +32,7 @@ class DupliBaseUrlInterceptor : Interceptor {
                 HttpConfig.DOUBAN == headerValue -> HttpUrl.parse(HttpConfig.BASEURL)
                 HttpConfig.CIBA == headerValue -> HttpUrl.parse(HttpConfig.CIBABASEURL)
                 HttpConfig.GANKIO == (headerValue) -> HttpUrl.parse(HttpConfig.GANKIOBASEURL)
+                HttpConfig.MAOMOVIE == (headerValue) -> HttpUrl.parse(HttpConfig.MAOMOVIEBASEURL)
                 else -> //默认主域名
                     HttpUrl.parse(HttpConfig.BASEURL)
             }

@@ -11,10 +11,8 @@ interface MainActivityContract {
 
 
     interface View : BaseViewI<Movie> {
-        fun loadMore()
     }
 
     interface Presenter {
-        fun getData(start: String, count: String, type: String)
     }
 }
