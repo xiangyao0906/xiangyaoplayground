@@ -32,24 +32,4 @@ class MoviePresenter:BasePresenter<MovieContract.View>(),MovieContract.Presenter
         )
     }
 
-    override fun getOnShowMovies() {
-
-        addSubscription(
-
-            model.getOnShowMovies().subscribe(object :BaseSubscribe<MovieData>(){
-                override fun _onNext(t: MovieData) {
-                    mView?.showOnShowMovies(t.movieList as ArrayList<MovieBean>)
-                }
-
-                override fun _onError(e: Throwable?) {
-                }
-            })
-
-
-
-
-
-        )
-
-    }
 }

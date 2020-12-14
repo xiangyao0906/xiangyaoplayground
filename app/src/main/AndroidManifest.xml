@@ -23,6 +23,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name="com.xiangyao.train.ui.movie.show.MovieDetailsActivity"></activity>
         <activity android:name="com.xiangyao.train.ui.common.CommonWebActivity" />
         <activity android:name="com.xiangyao.train.ui.Main2Activity" />
         <activity

@@ -1,5 +1,6 @@
 package com.xiangyao.train.base
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -61,6 +62,17 @@ abstract  class BaseFragment <T : BasePresnterIm, V> : Fragment(), BaseViewI<V> 
         showContent()
     }
 
+    fun startActivity(targetActivityClass: Class<*>) {
+        val intent = Intent(this.requireActivity(), targetActivityClass)
+        startActivity(intent)
+        //        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+    }
+
+    fun startActivity(targetActivityClass: Class<*>, bundle: Bundle) {
+        val intent = Intent(this.requireActivity(), targetActivityClass)
+        intent.putExtras(bundle)
+        startActivity(intent)
+    }
 
 
 }

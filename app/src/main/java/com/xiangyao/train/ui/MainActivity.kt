@@ -6,7 +6,7 @@ import com.xiangyao.train.base.BaseActivity
 import com.xiangyao.train.bean.Movie
 import com.xiangyao.train.contract.MainActivityContract
 import com.xiangyao.train.presenter.MainActivityPresenter
-import com.xiangyao.train.ui.find.MovieFragment
+import com.xiangyao.train.ui.movie.MovieFragment
 import com.xiangyao.train.ui.home.HomeFragment
 import com.xiangyao.train.ui.message.MessageFragment
 import com.xiangyao.train.utils.RouteConstant

@@ -10,6 +10,7 @@
     <color name="black">#000000</color>
     <color name="transparent">#00000000</color>
     <color name="half_transparent">#8f000000</color>
+    <color name="font_black">#333333</color>
 
     <!--分类筛选菜单-->
     <color name="font_black_0">#212121</color>
@@ -20,6 +21,30 @@
     <color name="font_black_5">#bdbdbd</color>
     <color name="font_black_6">#e0e0e0</color>
     <color name="bg_normal">#f4f4f4</color>
+    <color name="font_white_20">#CCFFFFFF</color>
+    <color name="font_white_60">#66FFFFFF</color>
+    <!-- 字体颜色 -->
+    <color name="font_gray">#999999</color>
+    <color name="font_gray_dark">#CCCCCC</color>
+    <color name="font_gray_light">#DDDDDD</color>
+    <color name="font_white">#FFFFFF</color>
+    <color name="font_white_light">#CCFFFFFF</color>
+    <color name="font_white_dark">#99FFFFFF</color>
+    <color name="font_white_40">#66FFFFFF</color>
+    <color name="font_black_dark">#0E0C0F</color>
+    <color name="font_black_1A">#1A1A1A</color>
+    <color name="font_blue">#3B4EFF</color>
+    <color name="font_blue_dark">#2A0487</color>
+    <color name="font_blue_light">#06B4FD</color>
+    <color name="font_red">#FF5F5F</color>
+    <color name="font_red_light">#FC4A1A</color>
+    <color name="font_red_dark">#F80759</color>
+    <color name="font_yellow">#FFFF5F</color>
+    <color name="font_yellow_dark">#E2C071</color>
+    <color name="font_yellow_60">#60E2C071</color>
+    <color name="font_green">#14BE7D</color>
+    <color name="font_green_dark">#3CABA1</color>
+    <color name="font_green_light">#06C7B7</color>
 
     <!--底部导航栏颜色-->
     <color name="col_3e83e5">#3e83e5</color>

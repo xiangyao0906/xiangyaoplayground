@@ -14,8 +14,4 @@ class MovieModel:MovieContract.Model {
       return  ApiManager.getApistore()?.getMovieCitys()?.compose(RxScedulerHelper.io_main())!!
     }
 
-    override fun getOnShowMovies(): Observable<MovieData> {
-
-        return ApiManager.getApistore()?.getOnShowMovie()?.compose(RxScedulerHelper.io_main())!!
-    }
 }

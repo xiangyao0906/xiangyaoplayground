@@ -15,7 +15,6 @@ interface MovieContract {
 
         fun getMovieCitys():Observable<CityData>
         
-        fun getOnShowMovies():Observable<MovieData>
 
     }
 
@@ -24,7 +23,6 @@ interface MovieContract {
 
         fun showMoviesCitys(arrayList: ArrayList<CityBean>)
 
-        fun showOnShowMovies(movieData: ArrayList<MovieBean>)
 
 
 
@@ -35,7 +33,6 @@ interface MovieContract {
 
         fun getMoviesCitys()
         
-        fun getOnShowMovies()
 
 
     }

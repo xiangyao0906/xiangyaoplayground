@@ -1,4 +1,4 @@
-package com.xiangyao.train.ui.find
+package com.xiangyao.train.ui.movie
 
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.viewholder.BaseViewHolder

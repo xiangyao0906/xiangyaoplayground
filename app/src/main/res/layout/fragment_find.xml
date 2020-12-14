@@ -1,35 +1,40 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.xiangyao.train.ui.find.MovieFragment">
+    tools:context="com.xiangyao.train.ui.movie.MovieFragment">
 
 
     <View
-        android:background="#008ff6"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/status_bar_height"/>
+        android:layout_height="@dimen/status_bar_height"
+        android:background="#008ff6" />
 
-    <LinearLayout
-        android:gravity="center"
-        android:background="#008ff6"
+   <LinearLayout
+       android:gravity="center"
+       android:background="#008ff6"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+       <com.google.android.material.tabs.TabLayout
+           android:id="@+id/tabLayout"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_gravity="center_horizontal"
+           android:background="@null"
+           app:tabMode="scrollable"
+           app:tabIndicatorFullWidth="false"
+           app:tabIndicatorHeight="0dp"
+           app:tabMaxWidth="0dp"
+           app:tabRippleColor="@null" />
+   </LinearLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewPager"
         android:layout_width="match_parent"
-        android:layout_height="40dp">
-
-        <TextView
-            android:textSize="16sp"
-            android:textColor="@color/white"
-            android:text="正在热映"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-    </LinearLayout>
-
-    <androidx.recyclerview.widget.RecyclerView
+        android:layout_height="0dp"
         android:layout_marginTop="10dp"
-        android:id="@+id/movieRv"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-
+        android:layout_weight="1" />
 
 </LinearLayout>
