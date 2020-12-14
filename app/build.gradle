@@ -89,4 +89,7 @@ dependencies {
 
     // optional - Kotlin Extensions and Coroutines support for Room
     implementation "androidx.room:room-ktx:$room_version"
+
+    //状态栏 {@link https://github.com/gyf-dev/ImmersionBar}
+    implementation 'com.gyf.immersionbar:immersionbar:3.0.0'
 }

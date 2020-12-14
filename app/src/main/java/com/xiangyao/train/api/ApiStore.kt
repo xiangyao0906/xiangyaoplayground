@@ -1,10 +1,7 @@
 package com.xiangyao.train.api
 
 import com.xiangyao.train.bean.Movie
-import com.xiangyao.train.data.BannerData
-import com.xiangyao.train.data.CityData
-import com.xiangyao.train.data.GirlData
-import com.xiangyao.train.data.HomeTagData
+import com.xiangyao.train.data.*
 import retrofit2.http.GET
 import retrofit2.http.Headers
 import retrofit2.http.Path
@@ -37,8 +34,11 @@ interface ApiStore {
     fun findSomeGirls(@Path("page") page:Int, @Path("count") count:Int): Observable<GirlData>
 
     //猫眼电影
-
     @Headers("xiangyao:maoyan")
     @GET("maoyanApi/dianying/cities.json")
     fun getMovieCitys(): Observable<CityData>
+    //正在上映的影片
+    @Headers("xiangyao:maoyan")
+    @GET("maoyanApi/ajax/movieOnInfoList")
+    fun getOnShowMovie(): Observable<MovieData>
 }

@@ -8,6 +8,7 @@ import com.xiangyao.train.contract.MainActivityContract
 import com.xiangyao.train.presenter.MainActivityPresenter
 import com.xiangyao.train.ui.find.MovieFragment
 import com.xiangyao.train.ui.home.HomeFragment
+import com.xiangyao.train.ui.message.MessageFragment
 import com.xiangyao.train.utils.RouteConstant
 import kotlinx.android.synthetic.main.activity_main.*
 import xiangyao.yizhilu.com.studyjourny.R
@@ -39,8 +40,8 @@ class MainActivity : BaseActivity<MainActivityPresenter, Movie>(), MainActivityC
 
         fragments.add(HomeFragment())
         fragments.add(MovieFragment())
-        fragments.add(MovieFragment())
-        fragments.add(MovieFragment())
+        fragments.add(MessageFragment())
+        fragments.add(MessageFragment())
 
         navigationBar.titleItems(tabText)
                 .normalIconItems(normalIcon)

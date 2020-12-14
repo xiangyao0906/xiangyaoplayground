@@ -2,7 +2,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.xiangyao.train.ui.find.MovieFragment">
+
+
+    <View
+        android:background="#008ff6"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/status_bar_height"/>
+
+    <LinearLayout
+        android:gravity="center"
+        android:background="#008ff6"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+
+        <TextView
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:text="正在热映"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginTop="10dp"
+        android:id="@+id/movieRv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 
 </LinearLayout>

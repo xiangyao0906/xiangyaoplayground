@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.MotionEvent
 import androidx.fragment.app.FragmentActivity
+import com.gyf.immersionbar.ImmersionBar
 import com.xiangyao.train.utils.AppManager
 import com.xiangyao.train.utils.KeyBoardUtils
 
@@ -31,12 +32,20 @@ abstract class BaseActivity<T : BasePresnterIm, V> : FragmentActivity(), BaseVie
 
         mPresenter = getPresenter()
 
+        setStatusBar()
         initView()
         initToolbar()
         initData()
         application = DemoApplication()
 
 
+    }
+
+     fun setStatusBar() {
+        ImmersionBar.with(this)
+                .transparentStatusBar().
+                statusBarDarkFont(false)
+                .init()
     }
 
 

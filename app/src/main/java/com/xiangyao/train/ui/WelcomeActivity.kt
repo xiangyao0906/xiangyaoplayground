@@ -1,11 +1,14 @@
 package com.xiangyao.train.ui
 
+import android.media.MediaPlayer
+import android.net.Uri
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import android.view.View
 import android.view.Window
 import android.view.WindowManager
-import android.view.animation.AccelerateDecelerateInterpolator
+import androidx.appcompat.app.AppCompatActivity
 import com.alibaba.android.arouter.launcher.ARouter
+import com.xiangyao.train.utils.AssetsUtil
 import com.xiangyao.train.utils.RouteConstant
 import kotlinx.android.synthetic.main.activity_welcome.*
 import xiangyao.yizhilu.com.studyjourny.R
@@ -30,23 +33,34 @@ class WelcomeActivity : AppCompatActivity() {
         window.setFlags(flag, flag)
 
         setContentView(R.layout.activity_welcome)
+
+//        initView()
+
+
+        ARouter.getInstance()
+                .build(RouteConstant.MAINACTIVITY)
+                .withString("title", "欢迎回家")
+                .navigation()
     }
 
-    override fun onResume() {
-        super.onResume()
+    private fun initView() {
+        val videoPath=AssetsUtil.getAssetsCacheFile(this,"split_video.mp4")
+        //加载 /res/raw下的视频进行播放。注意MediaPlayer支持的格式，一般要求后台传输压缩过得MP4视频。
+        videoView.setVideoURI(Uri.parse(videoPath))
 
-        pathView.pathAnimator
-                .delay(100)
-                .duration(1500)
-                .interpolator(AccelerateDecelerateInterpolator())
-                .listenerEnd {
-                    ARouter.getInstance()
-                            .build(RouteConstant.MAINACTIVITY)
-                            .withString("title", "欢迎回家")
-                            .navigation()
-                    finish()
-                }
-                .start()
+        videoView.setOnPreparedListener { mp ->
+            mp.start()
+            mp.isLooping = false
+        }
+        videoView.setOnCompletionListener {
+            videoView.suspend() //释放所有配置信息和内存.
+            ARouter.getInstance()
+                    .build(RouteConstant.MAINACTIVITY)
+                    .withString("title", "欢迎回家")
+                    .navigation()
+            finish()
+        }
     }
+
 
 }
