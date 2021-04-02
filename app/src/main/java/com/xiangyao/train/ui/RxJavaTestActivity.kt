@@ -1,13 +1,22 @@
 package com.xiangyao.train.ui
 
 import android.app.Activity
+import android.os.Build
 import android.os.Bundle
+import android.util.Log
+import android.widget.Button
+import androidx.annotation.RequiresApi
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.xiangyao.train.utils.DateFactory
 import com.xiangyao.train.utils.ILog
 import com.xiangyao.train.utils.RouteConstant
 import rx.Observable
+import rx.functions.Action1
+import rx.functions.Func1
+import rx.functions.Func2
 import xiangyao.yizhilu.com.studyjourny.R
+import java.util.function.BiFunction
+import rx.Observable.from as observableFrom
 
 
 @Route(path = RouteConstant.RXJAVAACTIVITY)
@@ -17,14 +26,42 @@ class RxJavaTestActivity : Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_rx_java_test)
 
+        findViewById<Button>(R.id.actionButton).setOnClickListener {
 
-        kottlinfor()
 
-        rxfilter()
+            zipTest()
+        }
 
-        rxmap()
 
-        ListTest()
+//        kottlinfor()
+//
+//        rxfilter()
+//
+//        rxmap()
+//
+//        ListTest()
+
+    }
+
+    /**
+     * zip 执行次数取决于数据源中最少的数据源个数
+     * */
+    private fun zipTest() {
+        var data1 = arrayListOf<Int>(1, 2, 3, 4, 5, 6, 7)
+        var data2 = arrayListOf<String>("Hello", "World", "Kotlin", "Android", "Java", "Moon")
+
+
+        val flowOne = Observable.from(data1)
+        val flowTwo = Observable.from(data2)
+
+        Observable.zip(flowOne, flowTwo,
+                (Func2<Int, String, String> { t1, t2 -> "${t1}---${t2}" }))
+                .subscribe(Action1 {
+
+                    Log.i("xiangyao", "$it")
+                })
+
+
     }
 
 
@@ -49,7 +86,7 @@ class RxJavaTestActivity : Activity() {
     private fun rxfilter() {
         var abc: ArrayList<Student> = DateFactory.getInputObject(10)
 
-        Observable.from(abc).filter { t: Student? -> t?.age == 8 }.subscribe({ t: Student ->
+        observableFrom(abc).filter { t: Student? -> t?.age == 8 }.subscribe({ t: Student ->
             ILog.i(t.name!!)
         })
 
@@ -82,8 +119,8 @@ class RxJavaTestActivity : Activity() {
         var abc: ArrayList<ArrayList<Student>> = ArrayList()
         abc.add(DateFactory.getInputObject(10))
 
-        Observable.from(abc)
-                .flatMap { a: ArrayList<Student> -> Observable.from(a) }.subscribe { t: Student -> ILog.i(t.name!!) }
+        observableFrom(abc)
+                .flatMap { a: ArrayList<Student> -> observableFrom(a) }.subscribe { t: Student -> ILog.i(t.name!!) }
     }
 
     private fun ListTest() {
@@ -93,7 +130,7 @@ class RxJavaTestActivity : Activity() {
          * */
         val arrayListOf = arrayListOf(1, 2, 3, 4, 5, 6, 7, 8, 9)
         val filter = arrayListOf.filter { a: Int -> a > 5 }
-        Observable.from(filter)
+        observableFrom(filter)
                 .subscribe { t -> ILog.i("哈哈哈$t") }
     }
 }

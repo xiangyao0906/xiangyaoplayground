@@ -6,15 +6,11 @@
     android:layout_height="match_parent"
     tools:context="com.xiangyao.train.ui.RxJavaTestActivity">
 
-
-    <ScrollView
-        android:id="@+id/scrlLogcat"
+    <Button
+        android:id="@+id/actionButton"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="70dp"
+        android:text="执行" />
 
-        <TextView
-            android:id="@+id/tvLogcat"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

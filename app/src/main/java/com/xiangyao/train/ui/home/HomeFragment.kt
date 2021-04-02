@@ -3,6 +3,7 @@ package com.xiangyao.train.ui.home
 import androidx.recyclerview.widget.LinearLayoutManager
 import cc.shinichi.library.ImagePreview
 import cc.shinichi.library.bean.ImageInfo
+import com.alibaba.android.arouter.launcher.ARouter
 import com.google.android.material.snackbar.Snackbar
 import com.xiangyao.train.adapter.GrilsAdapter
 import com.xiangyao.train.adapter.HomeTagAdapter
@@ -11,6 +12,7 @@ import com.xiangyao.train.bean.BannerBean
 import com.xiangyao.train.bean.GirlBean
 import com.xiangyao.train.bean.HomeTagBean
 import com.xiangyao.train.utils.RefreshLayoutUtil
+import com.xiangyao.train.utils.RouteConstant
 import com.youth.banner.indicator.CircleIndicator
 import com.youth.banner.util.LogUtils
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -44,15 +46,21 @@ class HomeFragment : BaseFragment<HomePresenter, Nothing>(), HomeContract.View {
         grilsAdapter = GrilsAdapter(arrayListOf())
 
         grilsAdapter.setOnItemClickListener { adapter, _, position ->
-            ImagePreview
-                    .getInstance()
-                    .setContext(this.requireActivity())
-                    .setImage((adapter.data[position] as GirlBean).url)// 图片集合
-                    .setShowDownButton(true)// 是否显示下载按钮
-                    .setFolderName("BigImageViewDownload")// 设置下载到的文件夹名（保存到根目录）
-                    .setZoomTransitionDuration(500)// 设置缩放的动画时长
-                    .setEnableDragClose(true)
-                    .start()// 开始跳转
+//            ImagePreview
+//                    .getInstance()
+//                    .setContext(this.requireActivity())
+//                    .setImage((adapter.data[position] as GirlBean).url)// 图片集合
+//                    .setShowDownButton(true)// 是否显示下载按钮
+//                    .setFolderName("BigImageViewDownload")// 设置下载到的文件夹名（保存到根目录）
+//                    .setZoomTransitionDuration(500)// 设置缩放的动画时长
+//                    .setEnableDragClose(true)
+//                    .start()// 开始跳转
+
+
+            ARouter.getInstance()
+                    .build(RouteConstant.RXJAVAACTIVITY)
+                    .navigation()
+
 
 
         }
