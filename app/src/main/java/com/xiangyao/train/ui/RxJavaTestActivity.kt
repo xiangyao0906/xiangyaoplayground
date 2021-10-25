@@ -1,26 +1,28 @@
 package com.xiangyao.train.ui
 
+import android.annotation.SuppressLint
 import android.app.Activity
-import android.os.Build
+import android.database.Cursor
 import android.os.Bundle
+import android.provider.MediaStore
 import android.util.Log
 import android.widget.Button
-import androidx.annotation.RequiresApi
 import com.alibaba.android.arouter.facade.annotation.Route
-import com.xiangyao.train.utils.DateFactory
-import com.xiangyao.train.utils.ILog
-import com.xiangyao.train.utils.RouteConstant
+import com.xiangyao.train.utils.*
 import rx.Observable
 import rx.functions.Action1
-import rx.functions.Func1
 import rx.functions.Func2
 import xiangyao.yizhilu.com.studyjourny.R
-import java.util.function.BiFunction
+import java.util.*
+import kotlin.collections.ArrayList
+import kotlin.collections.HashMap
 import rx.Observable.from as observableFrom
 
 
 @Route(path = RouteConstant.RXJAVAACTIVITY)
 class RxJavaTestActivity : Activity() {
+
+    val threadLocaleList = ThreadLocal<Int>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,8 +30,11 @@ class RxJavaTestActivity : Activity() {
 
         findViewById<Button>(R.id.actionButton).setOnClickListener {
 
+//            zipTest()
 
-            zipTest()
+//            limitTipsTest()
+
+            loadalblum()
         }
 
 
@@ -62,6 +67,82 @@ class RxJavaTestActivity : Activity() {
                 })
 
 
+//        ListTest()
+//
+//        testMap()
+//
+//        forQueenDemo()
+
+
+//        limitTipsTest()
+
+
+
+
+
+    }
+
+    @SuppressLint("Recycle")
+    private fun loadalblum() {
+
+        val array = arrayOf(
+                MediaStore.Images.Media._ID,
+                MediaStore.Images.Media.DATA,
+                MediaStore.Images.Media.ORIENTATION,
+                MediaStore.Images.Media.DATE_ADDED,
+                MediaStore.Images.Media.MIME_TYPE)
+        val sortOrder = MediaStore.Images.Media.DATE_ADDED + " desc"
+        val cursor: Cursor = contentResolver.query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, array, null, null, sortOrder)!!
+        if (cursor.moveToFirst()) {
+            do {
+                Log.i("xiangyao", "${cursor.getString(cursor.getColumnIndex(MediaStore.Images.Media.DATA))}")
+            } while (cursor.moveToNext())
+            cursor.close()
+        }
+
+
+    }
+
+    private fun limitTipsTest() {
+
+        val entime = "2021-5-3"
+
+
+        val curDateStr = DateUtil.getTimeStamp()
+
+
+        val endTimeStamp = DateUtil.str2Date(entime, DateUtil.FORMAT_YMD)?.time ?: curDateStr
+
+        val duration = endTimeStamp - curDateStr
+
+
+    }
+
+    private fun forQueenDemo() {
+
+
+    }
+
+    fun haha(char: Char): Boolean {
+
+        Log.i("xiangyao", "$char")
+        return true
+    }
+
+    private fun testMap() {
+        val hashMap = HashMap<Int, String>()
+
+        for (i in 0..20) {
+            hashMap[20 - i] = "$i"
+        }
+
+
+        val entries = hashMap.entries
+
+        entries.iterator().forEach {
+
+            Log.i("xiangyao", "key--${it.key}.....Value---${it.value}")
+        }
     }
 
 
@@ -86,9 +167,9 @@ class RxJavaTestActivity : Activity() {
     private fun rxfilter() {
         var abc: ArrayList<Student> = DateFactory.getInputObject(10)
 
-        observableFrom(abc).filter { t: Student? -> t?.age == 8 }.subscribe({ t: Student ->
+        observableFrom(abc).filter { t: Student? -> t?.age == 8 }.subscribe { t: Student ->
             ILog.i(t.name!!)
-        })
+        }
 
 
     }
@@ -104,7 +185,7 @@ class RxJavaTestActivity : Activity() {
          *
          * */
         Observable.just(1, 2, 3, 4, 5)
-                .map { t: Int? -> t.toString() + "转换流" }.subscribe({ t: String -> ILog.i(t) })
+                .map { t: Int? -> t.toString() + "转换流" }.subscribe { t: String -> ILog.i(t) }
     }
 
     private fun rxflatMap() {

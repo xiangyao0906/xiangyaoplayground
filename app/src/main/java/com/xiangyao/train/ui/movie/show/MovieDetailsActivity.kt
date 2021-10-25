@@ -27,5 +27,12 @@ class MovieDetailsActivity : AppCompatActivity() {
         videoView.setVideoURI(Uri.parse("https://vod.pipi.cn/fec9203cvodtransbj1251246104/9de7676a5285890811166362356/v.f42906.mp4"))
         videoView.start()
 
+//        val iDownloadFileBuilder = IDownloadFile.IDownloadFileBuilder()
+//        val downLoadfile = iDownloadFileBuilder.fileLocalPath("fileLocalPath").fileName("hah")
+//                .fileSize(123).build()
+//
+//        println("$downLoadfile")
+
+
     }
 }

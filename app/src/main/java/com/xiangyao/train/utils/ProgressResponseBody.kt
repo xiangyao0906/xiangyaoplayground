@@ -6,10 +6,7 @@ import java.io.IOException
 
 import okhttp3.MediaType
 import okhttp3.ResponseBody
-import okio.Buffer
-import okio.BufferedSource
-import okio.ForwardingSource
-import okio.Okio
+import okio.*
 
 /**
  * Created by xiangyao on 2017/10/14.
@@ -18,7 +15,7 @@ import okio.Okio
  * 用拦截器监听OKhttp下载文件的速度
  */
 
-class ProgressResposeBody(private val responseBody: ResponseBody, private val progressListener: ProgressListener) : ResponseBody() {
+class ProgressResponseBody(private val responseBody: ResponseBody, private val progressListener: ProgressListener) : ResponseBody() {
 
     override fun contentType(): MediaType? {
         return responseBody.contentType()
@@ -29,15 +26,21 @@ class ProgressResposeBody(private val responseBody: ResponseBody, private val pr
     }
 
     override fun source(): BufferedSource {
-        return Okio.buffer(object : ForwardingSource(responseBody.source()) {
+        return object : ForwardingSource(responseBody.source()) {
             /**
              * 文件总的大小
              */
-            internal var totalSize = 0L
+            /**
+             * 文件总的大小
+             */
+            var totalSize = 0L
             /**
              * 已经下载的大小
              */
-            internal var sum = 0L
+            /**
+             * 已经下载的大小
+             */
+            var sum = 0L
 
             @Throws(IOException::class)
             override fun read(sink: Buffer, byteCount: Long): Long {
@@ -54,16 +57,22 @@ class ProgressResposeBody(private val responseBody: ResponseBody, private val pr
 
                  */
 
+                /**
+
+                 * 这里把文件写入本地
+
+                 */
+
                 val progress = (sum * 1.0 / totalSize * 100).toInt()
 
-                if (len == -1 as Long) {
+                if (len == (-1).toLong()) {
                     progressListener.onDone(totalSize.toInt())
                 } else
                     progressListener.onProgress(progress)
 
                 return sum
             }
-        })
+        }.buffer()
     }
 
 }

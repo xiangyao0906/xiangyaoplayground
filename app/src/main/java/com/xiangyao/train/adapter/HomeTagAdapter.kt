@@ -1,7 +1,6 @@
 package com.xiangyao.train.adapter
 
 import android.annotation.SuppressLint
-import com.bumptech.glide.Glide
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
 import com.xiangyao.train.bean.HomeTagBean

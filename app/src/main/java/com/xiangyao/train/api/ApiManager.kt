@@ -1,6 +1,6 @@
 package com.xiangyao.train.api
 
-import com.xiangyao.train.Interceptor.DupliBaseUrlInterceptor
+import com.xiangyao.train.interceptor.DupliBaseUrlInterceptor
 import com.xiangyao.train.utils.HttpConfig
 import com.xiangyao.train.utils.HttpLog
 import okhttp3.OkHttpClient
@@ -27,11 +27,10 @@ object ApiManager {
                 val sslParams = SSL.getSslSocketFactory(CertificateProvider.getCertificateStreams(HttpConfig.BASEURL), null, null)
                 val okHttpClient = OkHttpClient.Builder()
                         .connectTimeout(TIME_OUT, TimeUnit.MILLISECONDS)
-                        .sslSocketFactory(sslParams.sSLSocketFactory, sslParams.trustManager)
+                        .sslSocketFactory(sslParams.sSLSocketFactory!!, sslParams.trustManager!!)
                         .hostnameVerifier { _, _ -> true }
                         //添加应用拦截器
                         .addInterceptor(DupliBaseUrlInterceptor())
-
                         //添加拦截器到OkHttp
                         .addInterceptor(logging)
                         .build()

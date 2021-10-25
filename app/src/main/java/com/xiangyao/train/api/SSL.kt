@@ -10,7 +10,7 @@ import javax.net.ssl.*
 class SSL {
     companion object {
 
-        private fun trustAllHosts() {
+         fun trustAllHosts() {
             val trustAllCerts = arrayOf<TrustManager>(object : X509TrustManager {
 
                 override fun getAcceptedIssuers(): Array<X509Certificate> {

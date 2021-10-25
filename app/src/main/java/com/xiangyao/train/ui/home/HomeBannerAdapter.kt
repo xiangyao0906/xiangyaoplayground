@@ -24,6 +24,4 @@ class HomeBannerAdapter(banners: ArrayList<BannerBean>) : BannerAdapter<BannerBe
         Glide.with(holder.itemView.context).load(data.image).into(holder.imageView)
 
     }
-
-
 }

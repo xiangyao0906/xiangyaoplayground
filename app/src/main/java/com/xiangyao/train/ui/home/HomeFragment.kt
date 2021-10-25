@@ -2,9 +2,9 @@ package com.xiangyao.train.ui.home
 
 import androidx.recyclerview.widget.LinearLayoutManager
 import cc.shinichi.library.ImagePreview
-import cc.shinichi.library.bean.ImageInfo
-import com.alibaba.android.arouter.launcher.ARouter
 import com.google.android.material.snackbar.Snackbar
+import com.scwang.smartrefresh.layout.api.RefreshLayout
+import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener
 import com.xiangyao.train.adapter.GrilsAdapter
 import com.xiangyao.train.adapter.HomeTagAdapter
 import com.xiangyao.train.base.BaseFragment
@@ -12,16 +12,15 @@ import com.xiangyao.train.bean.BannerBean
 import com.xiangyao.train.bean.GirlBean
 import com.xiangyao.train.bean.HomeTagBean
 import com.xiangyao.train.utils.RefreshLayoutUtil
-import com.xiangyao.train.utils.RouteConstant
 import com.youth.banner.indicator.CircleIndicator
 import com.youth.banner.util.LogUtils
 import kotlinx.android.synthetic.main.fragment_home.*
 import xiangyao.yizhilu.com.studyjourny.R
 
 
-class HomeFragment : BaseFragment<HomePresenter, Nothing>(), HomeContract.View {
+class HomeFragment : BaseFragment<HomePresenter, Nothing>(), HomeContract.View, OnRefreshLoadMoreListener {
 
-    lateinit var grilsAdapter: GrilsAdapter
+    lateinit var girlsAdapter: GrilsAdapter
     var page = 1
     var limit = 10
 
@@ -30,6 +29,8 @@ class HomeFragment : BaseFragment<HomePresenter, Nothing>(), HomeContract.View {
     override fun initView() {
 
         mPresenter.attachView(this, this.requireActivity())
+
+
     }
 
     override fun initData() {
@@ -38,31 +39,26 @@ class HomeFragment : BaseFragment<HomePresenter, Nothing>(), HomeContract.View {
 
         mPresenter.findSomeGirls(page, limit)
 
-        smartRefresh.setOnRefreshListener {
-            mPresenter.concactData()
-            mPresenter.findSomeGirls(page, limit)
-        }
 
-        grilsAdapter = GrilsAdapter(arrayListOf())
-
-        grilsAdapter.setOnItemClickListener { adapter, _, position ->
-//            ImagePreview
-//                    .getInstance()
-//                    .setContext(this.requireActivity())
-//                    .setImage((adapter.data[position] as GirlBean).url)// 图片集合
-//                    .setShowDownButton(true)// 是否显示下载按钮
-//                    .setFolderName("BigImageViewDownload")// 设置下载到的文件夹名（保存到根目录）
-//                    .setZoomTransitionDuration(500)// 设置缩放的动画时长
-//                    .setEnableDragClose(true)
-//                    .start()// 开始跳转
+        smartRefresh.setOnRefreshLoadMoreListener(this)
 
 
-            ARouter.getInstance()
-                    .build(RouteConstant.RXJAVAACTIVITY)
-                    .navigation()
+        girlsAdapter = GrilsAdapter(arrayListOf())
 
+        girlRv.layoutManager = LinearLayoutManager(this.requireActivity())
 
+        girlRv.adapter = girlsAdapter
 
+        girlsAdapter.setOnItemClickListener { adapter, _, position ->
+            ImagePreview
+                    .getInstance()
+                    .setContext(this.requireActivity())
+                    .setImage((adapter.data[position] as GirlBean).url)// 图片集合
+                    .setShowDownButton(true)// 是否显示下载按钮
+                    .setFolderName("BigImageViewDownload")// 设置下载到的文件夹名（保存到根目录）
+                    .setZoomTransitionDuration(500)// 设置缩放的动画时长
+                    .setEnableDragClose(true)
+                    .start()// 开始跳转
         }
     }
 
@@ -98,12 +94,11 @@ class HomeFragment : BaseFragment<HomePresenter, Nothing>(), HomeContract.View {
 
     override fun showGirls(girls: MutableList<GirlBean>) {
 
-        grilsAdapter.data = girls
-
-        girlRv.layoutManager = LinearLayoutManager(this.requireActivity())
-
-        girlRv.adapter = grilsAdapter
-
+        if (page == 0) {
+            girlsAdapter.data = girls
+        } else {
+            girlsAdapter.addData(girls)
+        }
 
         RefreshLayoutUtil.finishRefreshLayout(smartRefresh)
 
@@ -126,6 +121,17 @@ class HomeFragment : BaseFragment<HomePresenter, Nothing>(), HomeContract.View {
     }
 
     override fun showContent() {
+    }
+
+    override fun onRefresh(refreshLayout: RefreshLayout) {
+        mPresenter.concactData()
+        page=0
+        mPresenter.findSomeGirls(page, limit)
+    }
+
+    override fun onLoadMore(refreshLayout: RefreshLayout) {
+        page++
+        mPresenter.findSomeGirls(page, limit)
     }
 
 

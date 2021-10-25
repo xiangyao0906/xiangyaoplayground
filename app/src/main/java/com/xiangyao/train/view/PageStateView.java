@@ -1,6 +1,12 @@
 package com.xiangyao.train.view;
 
+import android.content.ContentResolver;
+import android.content.ContentUris;
 import android.content.Context;
+import android.database.Cursor;
+import android.net.Uri;
+import android.provider.MediaStore;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -134,4 +140,6 @@ public class PageStateView extends FrameLayout {
     public View getErrorView() {
         return errorView;
     }
+
+
 }
