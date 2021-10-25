@@ -101,7 +101,6 @@
         <!--空状态资源图-->
         <item name="Media_Empty_resource">@drawable/ic_empty_zhihu</item>
     </style>
-
     <style name="MyDialog" parent="AlertDialog.AppCompat">
         <item name="android:windowIsFloating">false</item>
         <item name="android:windowFrame">@null</item>
@@ -117,3 +116,4 @@
         <item name="android:windowExitAnimation">@anim/dialog_exit</item>
     </style>
 </resources>
+
