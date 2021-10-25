@@ -6,6 +6,7 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+
 public class GridSpaceItemDecoration extends RecyclerView.ItemDecoration {
 
     private int mSpanCount;//横条目数量
